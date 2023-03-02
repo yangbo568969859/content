@@ -1,0 +1,41 @@
+org: '1256345838'
+app: yangboblog
+stage: prod
+component: nuxtjs
+name: nuxtjs-lOhsCPjJT
+inputs:
+  src:
+    hook: npm run build
+    dist: ./
+    exclude:
+      - .env
+      - node_modules/**
+    src: ./
+  region: ap-shanghai
+  runtime: Nodejs10.15
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
+    serviceTimeout: 60
+    autoCreateDns: false
+  staticConf:
+    cosConf:
+      replace: true
+      bucket: yangboblog-prod-1256345838
+      acl:
+        permissions: public-read
+      sources:
+        - src: .nuxt/dist/client
+          targetDir: /
+        - src: static
+          targetDir: /
+  isAutoCiDeploy: false
+  functionConf:
+    eip: false
+    timeout: 3
+    memorySize: 256
+  layers:
+    - name: '${output:${stage}:${app}:yangboblog-layer.name}'
+      version: '${output:${stage}:${app}:yangboblog-layer.version}'

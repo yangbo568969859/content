@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-demo",
+  "version": "1.0.0",
+  "description": "Serverless Nuxt.js Application Created By Serverless Framework",
+  "author": "Tencent Cloud, Inc.",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.15.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^10.0.1",
+    "nuxt": "^2.14.3"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/color-mode": "^2.0.9",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/svg": "^0.1.12",
+    "less": "^4.1.1",
+    "less-loader": "5.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+org: '1256345838'
+app: yangboblog
+stage: prod
+component: layer
+name: yangboblog-layer
+inputs:
+  name: yangboblog-layer
+  region: ap-shanghai
+  src:
+    src: ../node_modules
+    targetDir: /node_modules
+  runtimes:
+    - Nodejs10.15

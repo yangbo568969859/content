@@ -105,15 +105,94 @@
 | associate | 关联，联合，联想 | The Unity User Manual helps you learn how to use the Unity Editor and its associated services. You can read it from start to finish, or use it as a reference. |
 | tutorial | 教程 |
 | **2023-03-03** | |
-| | | The way a sound is perceived depends on many factors |
+| factor | 因素，条件 |
+| perceive | 感知，察觉，看出 | The way a sound is perceived depends on many factors |
+| roughly | 大致，大概 |
+| loudness | 响度 | A listener can tell roughly which direction a sound is coming from and may also get some sense of its distance from its loudness and quality |
+| bomb | 炸弹，轰炸 |
+| pitch | 音调，音高，腔 | A fast-moving sound source (such as a falling bomb or a passing police car) changes in pitch as it moves as a result of the Doppler Effect |
+| Surround | 环绕，包围，周围 | Surroundings also affect the way sound is reflected |
+| cave | 洞穴 |
+| echo | 回声，回音 | A voice inside a cave has an echo, but the same voice in the open air doesn’t |
+| **2023-03-06** | |
 | | |
-| | | A listener can tell roughly which direction a sound is coming from and may also get some sense of its distance from its loudness and quality |
 | | |
-| | | A fast-moving sound source (such as a falling bomb or a passing police car) changes in pitch as it moves as a result of the Doppler Effect |
 | | |
-| | | Surroundings also affect the way sound is reflected |
 | | |
-| | | A voice inside a cave has an echo, but the same voice in the open air doesn’t |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
 | | |
 | | |
 | | |

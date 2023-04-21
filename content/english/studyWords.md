@@ -115,18 +115,17 @@
 | cave | 洞穴 |
 | echo | 回声，回音 | A voice inside a cave has an echo, but the same voice in the open air doesn’t |
 | **2023-03-06** | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
+| arrange | 安排，排列，布置，整理 |
+| tunes | 曲调 | you can arrange to play tunes |
+| direct | 直接，正面 |
+| further | 更远，进一步，且 | The script reference page for Microphone has further information and code samples for audio recording |
+| optional | 可选的，选修的，自选的 | apply optional effects such as echo and filtering |
+| transmission | 传输，传动 | for use during gameplay or for storage and transmission |
+| theory | 理论，原理，学说 |
+| **2023-04-06** | |
+| hardware | 硬件，铁器，金属制品 |
+| accelerated | 加速，促进 |
+| allocation | 分配 |
 | | |
 | | |
 | | |

@@ -1,4 +1,8 @@
-### unity3d商店资源包
+# unity第三方包或store商店
+
+## unity3d商店资源包
+
+### 场景资源
 
 - [Viking Village URP](https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140)
 - [Flooded Grounds](https://assetstore.unity.com/packages/3d/environments/flooded-grounds-48529)
@@ -26,20 +30,25 @@
   - FPS武器资源包
   - 包含4个武器，一个瞄准镜和一个烟雾手榴弹
 
+### 粒子特效系统
 
-### unity 工具库
+- [40 多种真实效果，适用于所有类型的战争游戏！](https://assetstore.unity.com/packages/vfx/particles/war-fx-5669)
+- [火、爆炸、冰、溶解等其他精美特效](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325)
+
+## unity 工具库
+
 - [UnityURPToonLitShaderExample](https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample)
   - 卡通着色器包
 
 - [URP-UniVrm](https://github.com/EvelynGameDev/URP-UniVrm)
   - vrm 转换为unity中可以使用的资源
 
+## 人物动作库和制作人物
 
-### 人物动作库和制作人物
 - [mixamo](https://www.mixamo.com/) 动画库
 - [vroid](https://vroid.com/en/studio) 快速制作角色
 
+## unity 具体场景DEMO
 
-### unity 具体场景DEMO
 - [MobileDrawMeshInstancedIndirectExample](https://github.com/ColinLeung-NiloCat/UnityURP-MobileDrawMeshInstancedIndirectExample)
   - 移动端绘制网格实例化间接示例

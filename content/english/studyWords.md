@@ -126,44 +126,22 @@
 | hardware | 硬件，铁器，金属制品 |
 | accelerated | 加速，促进 |
 | allocation | 分配 |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
+| **2023-04-21** | |
+| artificial | 人造的，虚假 |
+| intelligence | 智力，情报 |
+| occupational | 职业的 |
+| prompt | 迅速的，提示，促使 |
+| tutorial | 教程 |
+| erroneously  | | I found that there was an instance of VS Code open that was erroneously not shown on my dock |
+| postponed | | postponed the restart |
+| remained | |
+| encounter | 遇到，遭，领教 |
+| master | 主，硕士，大师，掌握 |
+| piece | 片，一块，部分 |
+| Vivid | 生动，传神，活泼 |
+| ultra | 过度的，极端主义者 |
+| concept | 概念，学说 |
+| illumination | 照明，光照，照亮 |
 | | |
 | | |
 | | |

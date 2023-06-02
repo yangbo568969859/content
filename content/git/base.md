@@ -1,3 +1,5 @@
+# git
+
 ## git 初始化配置
 
 1. 生成ssh秘钥，打开git终端，执行`ssh-keygen -t rsa -C "邮箱"`,执行成功，切换到~/.ssh目录下，复制id_rsa.pub内容
@@ -82,5 +84,22 @@ git branch -D <branch-name>
 git branch -d <branch-name>
 git push origin --delete <branch-name>
 # 重新命名分支
-git branch -m <old-branch-name> <new-branch-name>
+git branch -m <old-branch-name> <new-branch-name> // 如果不在当前要命名的分支上
+git branch -m <new-branch-name> // 如果在当前要命名的分支上
+// 重命名并未提交到远程分支
+```
+
+```sh
+# 重新命名分支并同步到远程
+# Rename the local branch
+$ git branch -m <newbranch>
+ 
+# Delete the old branch on the remote
+$ git push <remote> :<oldbranch>
+ 
+# or use --delete
+# $ git push <remote> --delete <oldbranch>
+ 
+# Push the new branch, and set up the local branch to track the remote branch
+$ git push --set-upstream <remote> <newbranch>
 ```

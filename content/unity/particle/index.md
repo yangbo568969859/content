@@ -49,4 +49,32 @@
   - Mesh
   - None
 
+#### Custom Data 模块
+
+#### Velocity Over Lifetime
+
+#### Limit Velocity Over Lifetime
+
+#### Force Over Lifetime
+
+#### Color Over Lifetime
+
 #### Size Over Lifetime
+
+#### Rotation Over Lifetime
+
+#### Noise 噪声
+
+#### Texture Sheet Animation
+
+- Mode
+  - Grid 将粒子材质分割成多张图片控制播放，比如下面示例的纹理图，通过Tiles属性控制XY轴方向分别切割几份
+  - Sprites 将渐变效果的纹理图转为精灵图并分割成多份，然后添加到当前模块，粒子系统便会根据这些精灵图来控制播放动画效果
+
+#### Light Trails
+
+#### Force Filed & External Forces
+
+## 参考文章
+
+[详解Unity中的粒子系统Particle System](https://blog.csdn.net/weixin_43147385/article/details/127146742?spm=1001.2014.3001.5502)

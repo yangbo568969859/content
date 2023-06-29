@@ -2,6 +2,13 @@
 
 ## unity3d商店资源包
 
+[LeanTween](https://assetstore.unity.com/packages/tools/animation/leantween-3595)
+LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎相同的功能（甚至更多！），同时开销要少得多
+
+[DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+[DOTween Pro](https://assetstore.unity.com/packages/tools/visual-scripting/dotween-pro-32416)
+通过简化的代码动画化任何东西。DOTween 是一种快速、高效、完全类型安全的面向对象动画引擎
+
 ### 场景资源
 
 - [Viking Village URP](https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140)
@@ -35,6 +42,11 @@
 - [40 多种真实效果，适用于所有类型的战争游戏！](https://assetstore.unity.com/packages/vfx/particles/war-fx-5669)
 - [火、爆炸、冰、溶解等其他精美特效](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325)
 
+### 传送特效
+
+- [传送特效](https://assetstore.unity.com/packages/vfx/particles/teleport-effect-114964)
+- [传送特效2](https://assetstore.unity.com/packages/vfx/particles/the-beautiful-portal-level-up-teleport-warp-vfx-vol-2-187941)
+
 ## unity 工具库
 
 - [UnityURPToonLitShaderExample](https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample)
@@ -45,8 +57,14 @@
 
 ## 人物动作库和制作人物
 
+### 三方动画网站
+
 - [mixamo](https://www.mixamo.com/) 动画库
 - [vroid](https://vroid.com/en/studio) 快速制作角色
+
+### assetStore资源
+
+- [Basic Motions FREE](https://assetstore.unity.com/packages/3d/animations/basic-motions-free-154271)
 
 ## unity 具体场景DEMO
 

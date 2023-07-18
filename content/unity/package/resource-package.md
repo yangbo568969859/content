@@ -37,6 +37,17 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
   - FPS武器资源包
   - 包含4个武器，一个瞄准镜和一个烟雾手榴弹
 
+### 角色模型资源
+
+- [vroid - 自制二次元模型](https://vroid.com/en/studio)
+- [模之屋 - 二次元模型](https://www.aplaybox.com/)
+- [CGmodel - 游戏CG使用的高品质模型](https://www.cgmodel.com/model/583648.html)
+- [元神模型 - 滚动到页面最下面 打开控制台，找到下载链接](https://ys.biligame.com/gczj/)
+
+### 模型解析
+
+- [UniVRM](https://github.com/vrm-c/UniVRM)
+
 ### 粒子特效系统
 
 - [40 多种真实效果，适用于所有类型的战争游戏！](https://assetstore.unity.com/packages/vfx/particles/war-fx-5669)
@@ -55,6 +66,10 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 - [URP-UniVrm](https://github.com/EvelynGameDev/URP-UniVrm)
   - vrm 转换为unity中可以使用的资源
 
+### 参考教程
+
+[UnityURPToonLitShaderExample](https://www.bilibili.com/video/BV1G34y127e6/?spm_id_from=333.788&vd_source=eb1be928283c344c6b9e18b67e64f1f2)
+
 ## 人物动作库和制作人物
 
 ### 三方动画网站
@@ -65,8 +80,33 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 ### assetStore资源
 
 - [Basic Motions FREE](https://assetstore.unity.com/packages/3d/animations/basic-motions-free-154271)
+- [Unity-chan!](https://assetstore.unity.com/packages/3d/characters/unity-chan-model-18705)
+
+## 官方资源包
+
+- [预设->FBX导出 FBX Exporter](https://docs.unity3d.com/Packages/com.unity.formats.fbx@4.1/manual/index.html)
+- [动画录制 Recorder](https://docs.unity3d.com/Packages/com.unity.recorder@4.0/manual/RecorderAnimation.html)
+- [过场动画制作 Timeline](https://docs.unity3d.com/Packages/com.unity.timeline@1.8/manual/index.html)
+- [Animation Rigging](https://docs.unity3d.com/Packages/com.unity.animation.rigging@1.3/manual/index.html)
 
 ## unity 具体场景DEMO
 
 - [MobileDrawMeshInstancedIndirectExample](https://github.com/ColinLeung-NiloCat/UnityURP-MobileDrawMeshInstancedIndirectExample)
   - 移动端绘制网格实例化间接示例
+
+## shader相关
+
+- [可视化着色器制作 Shader Graph(官方)](https://docs.unity3d.com/Packages/com.unity.shadergraph@12.1/manual/index.html)
+- [可视化着色器制作 Amplify Shader Editor](https://assetstore.unity.com/packages/tools/visual-scripting/amplify-shader-editor-68570)
+
+## store付费资源
+
+- [翻书本特效 Book - Page Curl Pro](https://assetstore.unity.com/packages/tools/gui/book-page-curl-pro-77222)
+- [物料/布料系统 Magica Cloth](https://assetstore.unity.com/packages/tools/physics/magica-cloth-160144)
+- [可给角色骨骼和关节增添物理效果 Dynamic Bone](https://assetstore.unity.com/packages/tools/animation/dynamic-bone-16743)
+
+## 资源分析相关
+
+- [AssetStudio 是一个用于探索、提取和导出资产和资产包的工具](https://github.com/Perfare/AssetStudio)
+- [AssetBundles-Browser 分析Bundle的重复资源使用问题](https://github.com/Unity-Technologies/AssetBundles-Browser)
+- [Find Reference 2 排查下当前资产之前的引用关系](https://assetstore.unity.com/packages/tools/utilities/find-reference-2-59092)

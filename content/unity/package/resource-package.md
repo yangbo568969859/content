@@ -58,6 +58,10 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 - [传送特效](https://assetstore.unity.com/packages/vfx/particles/teleport-effect-114964)
 - [传送特效2](https://assetstore.unity.com/packages/vfx/particles/the-beautiful-portal-level-up-teleport-warp-vfx-vol-2-187941)
 
+### 免费天空球
+
+- [FREE Skybox Extended Shader](https://assetstore.unity.com/packages/vfx/shaders/free-skybox-extended-shader-107400)
+
 ## unity 工具库
 
 - [UnityURPToonLitShaderExample](https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample)

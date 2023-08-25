@@ -85,6 +85,7 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 
 - [Basic Motions FREE](https://assetstore.unity.com/packages/3d/animations/basic-motions-free-154271)
 - [Unity-chan!](https://assetstore.unity.com/packages/3d/characters/unity-chan-model-18705)
+- [Various Attitudes animations](https://assetstore.unity.com/packages/3d/animations/various-attitudes-animations-motion-cast-free01-253521) 16个动画，适用于npc，虚拟主播的动画制作，适用于角色原地的动作展现
 
 ## 官方资源包
 

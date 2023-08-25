@@ -8,7 +8,8 @@
 音频文件一经加载就会被解压缩。对较小的压缩声音使用此选项可避免即时解压缩的性能开销。==请注意，在加载时解压缩Vorbis编码的声音比使用它压缩大约多十倍的内存（对于ADPCM编码大约是3.5倍）==，所以不要将此选项用于大文件。
 3. Compressed In Memory 压缩在内存中（音频剪辑将存储在RAM中，播放时将解压缩，播放时不需要额外的存储）
 保持声音在存储器中压缩并在播放时解压缩。这个选项有一个小的性能开销（尤其是对于Ogg / Vorbis压缩文件），所以==只能用于较大的文件==，因为在加载时解压缩会使用大量的内存。解压缩在混音器线程上发生，并可在Profiler窗口的音频面板中的“DSP CPU”部分进行监视。
-4. Preload Audio Data 预加载音频数据
+
+### Preload Audio Data 预加载音频数据
 如果启用，音频剪辑将在场景加载时预先加载。默认情况下，这反映了在场景开始播放时所有音频剪辑已完成加载的标准Unity行为。如果未设置该标志，音频数据将要么被上加载的第一个的AudioSource.Play() / 的AudioSource.PlayOneShot()，或者它可以通过加载的AudioSource.LoadAudioData()，并通过再次卸载的AudioSource.UnloadAudioData()。
 
 总结：小文件音频建议使用预加载，大文件音频建议使用将Load Type修改为 Streaming ,这样在播放完毕后会自动释放对应文件。

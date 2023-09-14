@@ -168,3 +168,121 @@ unity中有的简化手段
 - SRP:Node material requires device state change 节点材质需要改变渲染设备状态
 - SRP:First call from ScriptableRenderLoopJob ScriptableRenderLoopJob第一次调用
 - SRP.This material has custom buffer override 材质有自定义重写的Buffer
+
+### URP中的Settings
+
+- Player Settings
+- Graphics Settings 这两个是一般Unity工程的图形与工程设置
+- Default URP Render Pipeline Asset 可以被Qulity Level 覆写，部分属性可以被每个摄像机组件覆写
+- Volumn Components 可以被每个场景中摄像机根据相机位置复写
+
+### 地形Terrain 优化
+
+- 大地图项目地图如果使用unity的Terrain编辑器生成的地形，开销在移动端会非常大，一般我们都是通过地形mesh来替代(自己实现一套地形烘焙的工具，根据terrain data信息将mesh信息与混合后的地形纹理烘焙出来，并通过prefab生成地形快)
+- assetstore地形优化工具 [Terrain To Mesh](https://assetstore.unity.com/packages/tools/terrain/terrain-to-mesh-195349)
+
+### 主光源级联阴影优化
+
+### 内存概述与工具方法
+
+unity中的内存分为3类
+
+- 托管内存：主要是指使用托管堆或者垃圾收集器自动分配和管理的内存，也包括脚本堆栈和虚拟机内存
+- C#非托管内存：可以在C#下与Unity Collection名字空间和包结合使用，不使用垃圾收集器管理的内存部分
+- Native内存：unity用于运行引擎的C++内存
+
+#### Allocators
+
+unity引擎中 C++ 层会根据内存用途不同，抽象出不同的Allocator进行内存分配，通过不同的MemoryLabel标签与ownershape的设置进行标记和追踪，通过memorymanager进行整体的管理，2021版本后可以在memeory settings中看到部分
+
+按用途分类
+
+- Main Allocators 绝大多数内存分配使用的的分配器，包括主线程，渲染资源相关，文件cache，typetree等不同用途下的分配器
+- Fast Per Thread Temporary Allocators 线程上使用的临时分配器，包括各工作线程的栈分配器，比如音乐/渲染/预加载/烘焙等工作线程上的分配器
+- Fast Thread Shared Temporary Allocators 线程间共享的临时分配器
+- Profiler Allocators
+
+按底层类型分类
+
+- UnityDefaultAllocator
+- BucketAllocator
+- DynamicHeapAllocator
+- DualThreadAllocator
+- TLSAllocator
+- StackAllocator
+- ThreadSafeLinearAllocator
+- ...
+
+![images](./images/POPO20230908-192303.png)
+
+##### BucketAllocator 桶分配器
+
+- 每个bucket由固定大小粒度granularity表示，如果granularity为16字节大小，则用于分配16/32/48/64/·.字节的内存，如果是development版本granularity在设置大小的基础上增加40个字节
+- 分配器为分配保留内存块Block，每个块被划分为16kb的子段(subsections),并且不可配置Block块只能增长并且需要是固定16kb大小的整数倍。
+- 分配是固定大小无锁的，速度快，通常作为进入堆分配器之前用来加速小内存分配的分配器
+- Log日志中可以通过查看[ALLOC_BUCKET]字段来看是否有Failed Allocations. Bucket layout字段以及Peak Allocated bytes字段与Large Block size字段的利用率，来判定大小是否分配合适
+- 分配失败会会退到DynamicHeapAllocator或UnityDefaultAllocator分配器上，效率变差。
+
+![images](./images/POPO20230908-192533.png)
+
+##### DynamicHeapAllocator 动态堆分配器
+
+- 所有平台都希望使用的分配器 (Mac与IOS暂时仍然使用UnityDefaultAllocator)
+- 底层基于TLSF，保留tlsf块列表，并在一个块已满后，切换到另一个块,或没有时分配一个新块,关于TLSF :http://www.gii.upv.es/tlsf/files/ecrts04 tlsf.pdf
+- 最棘手的部分是设置块的大小。根据不同平台，更大的块效率更高，碎片更少，但对于内存有限的平台来说灵活性差
+- 最大块为256M，最小块为128k,如果64位架构使用更大的Region来保存多个块MEMORY_USE LARGE BLOCKS，如果分配失败会会退到虚拟内存分配，效率更差
+- Log中[ALLOC_DEFAULT_MAIN]下关注Peak usage frame count字段，查看大多数分配内存的范围，关注内存分配峰值Peak Allocated memory字段，以及Peak Large allocation bytes没有使用TLSF分配的内存大小
+
+##### DualThreadAllocator 双线程分配器
+
+- 它是将2个DynamicHeapAllocator实例与1个BucketAllocator封装到一起，其中BucketAllocator负责小的共享内存分配，1个无锁的DynamicHeapAllocator用于主线程分配，另外一个DynamicHeapAllocator负责其他线程的共享分配，但是分配与回收时需要加锁
+- Log中[ALLOC DEFAULT]下分别关注[IALLOC_BUCKET]、[ALLOCDEFAULT_MAIN]、[ALLOC_DEFAULT_ THREAD]字段下一个BucketAllocator与2个DvnamicHeapAllocator的分配信息，其中尤其关注Peak main deferred allocation count字段，这个字段代表需要在主线程回收的分配队列。
+- 负责其他线程的共享分配的DynamicHeapAllocatord对应C#非托管内存的Allocator.Persistent
+
+##### TLSAllocator / StackAllocator
+
+- 用于快速临时分配的堆栈分配器。它是最快的分配器，几乎没有开销，并且可以防止内存碎片对应C#非托管内存的Allocator.Temp分配类型
+- 它是基于后进先出LIFO的算法，分配的内存生命周期在一帧内。
+- 如果分配器使用超过了配置的大小，Unity会增加分配块大小，但会是配置设置的2倍大小，如果线程堆栈分配器满了，分配器将会退到线程安全线性iob分配器。这时一帧内允许有1-10分配，甚至如果是加载- 期间可以允许几百次。但如果每帧的分配数字增加可以考虑增加块大小。
+- Log日志[ALLOC_TEMP_TLS]下关注[ALLOC TEMP_MAIN]与[ALLOC TEMP Job.Worker xx]中的Peak usage frame count于Peak Allocated Bytes字段，也要关注Overflow Count字段，是否发生了分配器溢出会退的情况。
+
+##### ThreadSafeLinearAllocator
+
+- 用于快速无锁分配Job线程的缓冲区，并在Job完成后释放缓冲区，对应C#非托管内存的Allocator.TempJob
+- 采用循环先进先出FIFO算法，先分配内存块，然后在这些内存块内进行线性分配内存所有可用块都会存到一个池中，当一个块满时再从池中提取一个新的可用块。当分配器不再需要块中内存时，清理该块并放回到可用池中。快速清理分配可用块非常重要因此Job的分配尽量在几帧内完成。
+- 如果所有块都在使用中，或者一个分配对于一个块太大的情况下，则会退到主堆分配器，分配效率会下降
+- Log日志[ALLOC_TEMP_JOB_4_FRAMES]中我们需要关注Overflow Cout(too large)与Overflow Count(full)字段，判断是否发生了分配器溢出会退。
+
+### Memory Profiler中的内存度量与术语
+
+- Page操作系统内存管理的最小单元
+- Page的状态：
+  - Used page正在被进程使用，而内存页也已经映射到物理内存中
+  - Free 代表该page页可用，并且还没有映射到物理内存中
+  - Cache 代表该page页被操作系统用于缓存的可用内存，虽然内存page已经映射到物理内存中，但该页可能近期没有被访问
+![image](./images/POPO20230908-194110.png)
+- Region 区域
+  - 状态
+    - Resident 代表其中的page页已经在物理内存中
+    - Dirty 代表page已修改，但未写入磁盘
+    - Wired 代表永远不会交换到辅助存储的固定配置
+    - Committed 代表已分配的内存区域，其地址不能被其它分配使用，是由ram磁盘上的分页文件或其它资源来支持的
+    - Reserved 该状态的region保留地址空间供将来使用，地址不会被其它分配使用，也不可访问
+    - Free 空闲内存区，既不会committed也不会Reserved，并且进程无法访问
+  - 类型
+    - Anonymous
+    - Mapped
+- 进程的内存结构
+  - Commited Memory 是一个进程分配虚拟内存的总量
+  - Resident Memory 已经被映射到虚拟内存中的物理内存，同样包括当前进程占用的内存和与其它进程共享的内存
+![image](./images/POPO20230908-194603.png)
+- 进程的内存结构
+  - USS 为当前进程私有的Resident内存总和
+  - PSS 当前进程常驻内存与其它进程共享的Resident内存总和
+  - RSS 进程可访问的resident常驻内存总和
+  - VSS 总共Committed提交的内存总和
+![image](./images/POPO20230908-194723.png)
+
+移动平台下内存经验数据(1080p)
+![image](./images/POPO20230908-195042.png)
+![image](./images/POPO20230908-200808.png)

@@ -115,3 +115,5 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 - [AssetStudio 是一个用于探索、提取和导出资产和资产包的工具](https://github.com/Perfare/AssetStudio)
 - [AssetBundles-Browser 分析Bundle的重复资源使用问题](https://github.com/Unity-Technologies/AssetBundles-Browser)
 - [Find Reference 2 排查下当前资产之前的引用关系](https://assetstore.unity.com/packages/tools/utilities/find-reference-2-59092)
+- [Build Report](https://assetstore.unity.com/packages/tools/utilities/build-report-tool-8162#description)
+  - [使用方式](https://blog.csdn.net/q764424567/article/details/128835695)

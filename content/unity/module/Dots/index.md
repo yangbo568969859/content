@@ -113,3 +113,21 @@ Data-Oriented Technology Stack(面向数据的技术栈)
 
 队列类型
 ![image](./images/QueueType.png)
+![image](./images/complex_queue.png)
+
+队列模型建模考虑因素
+
+- 到达分布
+- 到达规模
+- 队列中人员耐心程度
+- 有限/无限队长
+- 队列结构
+- ...
+
+#### 核心包学习路径图
+
+- Job System 学习如何将主线程逻辑迁移到JOB线程中并行执行
+- UnityCollection 学习在JobSystem中与Burst编译生成代码使用访问非托管数据类型结构
+- Create entities 学习使用代码，场景，prefab来实例化Entites对象
+- Entities queries 学习批量处理Entities对象
+- System 学习在主线程代码调度Jobs处理Entities对象

@@ -9,7 +9,7 @@
 | Metallic | 金属色 |
 | Occlusion | 遮挡剔除，闭塞 |
 | Emission | 排放 |
-| Tilling | 耕作 |a
+| Tilling | 耕作 |
 |  |  |
 |  |  |
 |  |  |

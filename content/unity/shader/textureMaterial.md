@@ -259,3 +259,12 @@ Valve公司首先使用了一种基于冷到暖色调的着色技术（cool-towa
 - 菲涅尔效应
   - F(Schlick)(v, n) = F0 + (1 - F0) (1- v*n)^5
   - F(Empricial)(v, n) = max(0, min(1, bias + scale*(1- v*n)^power))
+
+## 获取深度和法线纹理
+
+深度纹理实际上就是一张渲染纹理，只不过里面存储的像素值不是颜色值，而是一个高精度的深度值。由于被存储在一张纹理中，深度纹理里的深度值范围是[0, 1],而且通常是非线性分布的
+总体来说，这些深度值来自于顶点变换后得到的归一化的设备坐标(Normalized Device Coordinates)
+
+### 获取深度纹理
+
+camera.depthTextureMode = DepthTextureMode.Depth;

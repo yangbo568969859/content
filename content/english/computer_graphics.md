@@ -9,11 +9,9 @@
 | Logistics | 后勤, 物流 |
 | Visualization | 可视化 |
 | Augmented Reality | 增强现实 |
-| Tilling | 耕作 |
 | Digital | 数字的 |
 | illustration | 插图 |
 | simulation | 模拟 |
-| interface | 接口,界面,端口 |
 | Typography | 版式 |
 | Interacts | 相互作用 |
 | Rasterization | 光栅化 |
@@ -22,10 +20,7 @@
 | intersection | 交叉 |
 | bounce | 弹跳,反射 |
 | till | 直到 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Comprehensive | 全面,综合的 |
 |  |  |
 |  |  |
 |  |  |

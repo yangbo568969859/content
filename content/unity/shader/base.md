@@ -1,4 +1,90 @@
-# Unity Shader的基本语法结构
+# Unity Shader 的基本语法结构
+
+## 基础
+
+[普通 Unity 项目内提供的 Shader 类型](./unityshader.md)
+
+如果没有 Unity，对某个模型设置渲染的伪代码
+
+```C#
+void Initialization()
+{
+   // 从硬盘上加载顶点着色器/片元着色器的代码
+  string vertexShaderCode = LoadShaderFromFile(VertexSahder.shader);
+  string fragmentShaderCode = LoadShaderFromFile(FragmentShader.shader);
+
+  // 把顶点着色器/片元着色器加载到GPU中
+  LoadVertexShaderFromString(vertexShaderCode);
+  LoadFragmentShaderFromString(fragmentShaderCode);
+
+  // 设置名为[vertexPosition]的属性的输入，即模型顶点坐标
+  SetVertexShaderProperty([vertexPosition], vertices);
+  // 设置名为[MainTex]的属性的输入，someTexture是某张已加载的纹理
+  SetVertexShaderProperty([MainTex], someTexture);
+  // 设置名为[MVP]的属性的输入，MVP是之前由开发者计算好的变换矩阵
+  SetVertexShaderProperty([MVP], MVP);
+
+  // 关闭混合
+  Disable(Blend);
+  // 设置深度测试
+  Enable(ZTest);
+  SetZTestFunction(LessOrEqual);
+
+  // 其他设置
+  ...
+
+}
+
+// 每一帧进行渲染
+void OnRendering(){
+  // 调用渲染命令
+  DrawCall();
+  // 当涉及多种渲染设置时，我们可能还需要在这里改变各种渲染设置
+  ...
+}
+
+// VertexShader.shader：
+in float3 vertexPosition;
+in sampler2D MainTex;
+in Materix4x4 MVP;
+
+out float4 position;
+
+void main()
+{
+  // 使用MVP对模型顶点左边进行变换
+  position=MVP*vertexPosition;
+}
+
+// FragmentShader.shader：
+in float4 position;
+out float4 finalColor;
+
+void main()
+{
+  finalColor = float4(1.0, 1.0, 1.0, 1.0);
+}
+```
+
+## 语法基础 ShaderLab
+
+```C#
+Sahder [ShaderName]
+{
+  Properties {
+    // 属性
+  }
+  SubShader
+  {
+    // 
+  }
+  SubShader
+  {
+
+  }
+  Fallback [VertexLit]
+}
+```
 
 ```C#
 Pass
@@ -54,19 +140,19 @@ Pass
 
 ## 语义
 
-语义（semantics）就是一个赋给Shader输入输出的字符串，这个字符串表达了这个参数的含义，语义可以让Shader知道从哪里读取数据，并把数据输出到哪里
+语义（semantics）就是一个赋给 Shader 输入输出的字符串，这个字符串表达了这个参数的含义，语义可以让 Shader 知道从哪里读取数据，并把数据输出到哪里
 
 - 语义分为有意义语义和无意义语义
 - 接收系统数据的语义有特殊含义，而用户输入无特殊含义
 
-SV系统数值（system-value）语义
+SV 系统数值（system-value）语义
 
 - SV_POSITION 表示光栅化的变换后的顶点坐标（即齐次裁剪空间中的坐标）
 - SV_TARGET 表示告诉渲染器把结果存储到渲染目标
 
 ## 模型数据从哪里来
 
-- 每帧调用Draw Call时，Mesh Render组件会把它负责渲染的模型数据发送给Unity Shader。
+- 每帧调用 Draw Call 时，Mesh Render 组件会把它负责渲染的模型数据发送给 Unity Shader。
 - 定义结构体逐顶点获取模型数据
 
 ```C#
@@ -116,4 +202,4 @@ fixed4 frag(v2f i) : SV_TARGET
 
 ### 内置包含文件
 
-包含文件（include file），类似于C++的头文件，在Unity中，他们的文件后缀是.cginc；在编写的时候可以使用 #include 指令把这些文件包含进来
+包含文件（include file），类似于 C++的头文件，在 Unity 中，他们的文件后缀是.cginc；在编写的时候可以使用 #include 指令把这些文件包含进来

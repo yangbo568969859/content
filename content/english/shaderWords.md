@@ -16,8 +16,8 @@
 | saturation | 饱和度 |
 |  |  |
 | convolution | 卷积,回旋,旋转 |
-|  |  |
-|  |  |
+| interpolates | 插值 |
+| stencil | 模板 |
 |  |  |
 |  |  |
 |  |  |

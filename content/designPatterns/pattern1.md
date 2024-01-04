@@ -1,4 +1,7 @@
+# 设计模式
+
 ## 什么是设计模式
+
 模式是一种可复用的解决方案，用于解决软件设计中遇到的常见问题
 
 换个通俗的说法：设计模式是解决某个特定场景下对各种问题的解决方案，因此，当我们遇到合适的场景，我们可能会条件反射一样自然而然想到符合这种场景的设计模式
@@ -6,11 +9,14 @@
 在将函数作为一等公民的对象语言中，有许多需要利用对象多态性的设计模式，比如命令模式、策略模式等，这些模式的结构与传统面向对象语言的结构大相径庭；
 
 ## 单例模式
+
 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
 单例模式的核心是 确保只有一个实例，并提供全局访问
 实现的方法为用一个变量先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返会，这就确保了一个类只有一个实例对象
+
 - 试用场景：一个单一对象。比如：登录弹窗，无论点击多少次，弹窗只应该被创建一次
 用代理来实现单例模式
+
 ```javascript
 class CreateUser {
   constructor(name) {
@@ -35,8 +41,10 @@ var a = new ProxyMode('aaa');
 var b = new ProxyMode('bbb');
 console.log(a === b); // 因为单体模式是只实例化一次，所以下面的实例是相等的
 ```
+
 - 惰性单例
 惰性单例指的是在需要的时候才创建对象实例
+
 ```javascript
 var getSingle = function(fn) {
   var result;
@@ -66,9 +74,10 @@ document.getElementById('loginBtn').onclick = function() {
 }
 ```
 
-
 ## 策略模式
+
 定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。
+
 - 一个基于策略模式的程序至少由两部分组成：
   - 一组策略类（可变），封装了具体算法，并负责具体的计算过程
   - 环境类 （Context 不变）context接受客户的请求，随后将请求委托给一个策略类
@@ -76,6 +85,7 @@ document.getElementById('loginBtn').onclick = function() {
   - 各判断条件下的策略相互独立且可复用
   - 策略内部逻辑相对复杂
   - 策略需要灵活组合
+
 ```javascript
 /* 策略类 */
 var levelOBJ = {
@@ -96,7 +106,9 @@ var calculateBouns = function(level, money) {
 console.log(calculateBouns('A',10000)); // 40000
 console.log(calculateBouns('B',10000)); // 30000
 ```
+
 用策略模式来实现表单校验
+
 ```javascript
 var strategies = {
   isNotEmpty: function(value, errMsg) {
@@ -137,14 +149,17 @@ validator.add(registerForm.userName, 'minLength: 10', '用户名长度不能小�
 ```
 
 ## 代理模式
+
 所谓的代理模式就是为一个对象提供一个代用品或者占位符，以便控制对它的访问；
 
 代理形式
+
 - 保护代理
   - 用于控制不同权限的对象对目标对象的访问，但在javascript中并不容易实现保护代理，因为我们无法判断谁访问了某个对象
 - 虚拟代理
   - 常用的虚拟代理形式：某一个花销很大的操作，可以通过虚拟代理的方式延迟到真正需要它的时候才去创建
   - 图片预加载
+
   ```javascript
   const myImage = (function () {
     const imageNode = document.createElement('img');
@@ -169,8 +184,10 @@ validator.add(registerForm.userName, 'minLength: 10', '用户名长度不能小�
   })()
   proxyImage.setSrc('http://loaded.jpg');
   ```
+
 - 缓存代理
   - 缓存代理实现计算乘积或者加和
+
   ```javascript
   const mult = function() {
     let a = 1;
@@ -203,6 +220,7 @@ validator.add(registerForm.userName, 'minLength: 10', '用户名长度不能小�
   console.log(proxyMult(1, 2, 3, 4)) // 24
   console.log(proxyPlus(1, 2, 3, 4)) // 10
   ```
+
 - 代理和被代理对象的一致性
 - 其他代理模式
   - 防火墙代理：控制网络资源的访问，保护主机不让‘坏人’接近
@@ -211,10 +229,11 @@ validator.add(registerForm.userName, 'minLength: 10', '用户名长度不能小�
   - 智能引用代理：取代了简单的指针，它在访问对象时执行一些附加操作，比如计算一个对象被引用的次数
   - 写时复制代理：通常用于复制一个庞大对象的情况
 
-
 ## 迭代器模式
+
 迭代器模式是指提供一种方法访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。
 迭代器模式可以把迭代的过程从业务逻辑中分离出来，在使用迭代器模式之后，即使不关心对象的内部构造，也可以按照顺序访问其中的每个元素；
+
 ```javascript
 // 实现自己的迭代器
 var each = function(ary, callback) {
@@ -228,6 +247,7 @@ each([1, 2, 3, 4], function(i, n) {
 ```
 
 ## 发布-订阅模式
+
 事件发布/订阅模式（PubSub）在异步编程中帮助我们完成更松的解耦，甚至在MVC，MVVM的架构中以及设计模式中也少不了发布-订阅模式的参与
 
 优点：在异步编程中实现更深的解耦
@@ -235,6 +255,7 @@ each([1, 2, 3, 4], function(i, n) {
 缺点：如果过多的使用发布订阅模式，会增加维护的难度
 
 实现node的EventEmitter
+
 ```javascript
 function EventEmitter() {
   this._events = Object.create(null);
@@ -303,14 +324,17 @@ module.exports = EventEmitter;
 ## 组合模式
 
 ## 模板方法模式
+
 模板方法模式是一种只需要使用继承就可以实现的非常简单的模式
 
 模板方法模式由两部分组成
+
 - 抽象父类（通常在父类封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序）
 - 具体的实现子类 （子类通过继承这个抽象父类，也继承了整个算法结构，并且可以选择重写父类的方法）
 
 例子
 Coffee or Tea
+
 ```javascript
 // 首先分离公共点，即泡茶和咖啡的共同点；经过抽象，这两者都能整理为下面四步
 // - 把水煮沸
@@ -362,24 +386,29 @@ tea.init();
 ```
 
 ## 享元模式（flyweight）
+
 享元模式是一种用于性能优化的模式，核心是运用共享技术来有效的支持大量细粒度的对象
 
 享元模式要求将对象的属性划分为内部状态和外部状态（状态在这里通常指属性），享元模式的目标是尽量减少共享对象的数量
 
 如何划分内部状态和外部状态
+
 - 内部状态存储于对象内部
 - 内部状态可以被一些对象共享
 - 内部状态独立于具体的场景，通常不会变化
 - 外部状态取决于具体的场景，并根据场景而变化，外部状态不能被共享
 
 享元模式适用性
+
 - 一个程序中使用了大量的相思对象
 - 由于使用了大量对象，造成了很大的内存开销
 - 对象的大多数状态都可以变为外部状态
 - 剥离出对象的外部状态之后，可以用相对较少的共享对象取代大量对象
 
 举个例子
+
 - 文件上传
+
 ```javascript
 var id = 0;
 // 触发上传动作的 startUpload 函数
@@ -446,6 +475,7 @@ var uploadManger = (function() {
 ```
 
 ## 责任链模式
+
 责任链模式的定义是：使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止；
 类似于多米诺骨牌，请求第一个条件，会持续执行后续的条件，直到返回结果为止；
 
@@ -486,7 +516,9 @@ function playGame() {
 }
 // 假如又多了个条件，我必须再修改playGame方法，这个其实是违反开放-封闭原则，不易于代码的维护
 ```
+
 优化后的代码
+
 ```javascript
 // 创建一个链条的函数或类
 const Chain = function(fn) {
@@ -516,7 +548,6 @@ function playGameOptimization() {
   chainSatisfyJack.passRequest() // 发起请求
 }
 ```
-
 
 ```javascript
 // 场景: 某电商针对已付过定金的用户有优惠政策, 在正式购买后, 已经支付过 500 元定金的用户会收到 100 元的优惠券, 200 元定金的用户可以收到 50 元优惠券, 没有支付过定金的用户只能正常购买。
@@ -624,8 +655,10 @@ function playGameOptimization() {
   chainOrder.passRequest() // 发起请求
 }
 ```
+
 通过职责链模式，解耦了请求发送者和多个接收者之间的复杂关系，不再需要知道具体哪个接收者来接收发送的请求，只需要向职责链的第一个阶段发起请求
 责任链的优缺点
+
 - 最大优点就是解耦了请求发送者和N个接收者之间的复杂关系
 - 使用了责任链模式之后，链中的节点对象可以灵活的拆分重组
 - 可以手动指定起始节点
@@ -633,17 +666,21 @@ function playGameOptimization() {
 - 另外，责任链模式使得程序中多了一些节点对象，可能在某次请求传递过程中，大部分节点并没有起到实质性的作用，他们的作用仅仅是让请求传递下去，从性能方面考虑，我们要避免过长的责任链带来的性能耗损；
 
 ## 中介者模式
+
 中介者模式的作用就是解除对象和对象之间的紧耦合关系，增加一个中介者对象之后，所有的相关对象都通过中介者对象来通信
 
 中介者模式使得网状的多对多关系变成了相对简单的一对多关系
 
-现实中的中介者 
+现实中的中介者
+
 - 机场指挥塔
 - 博彩公司
 
 举个例子
+
 - 泡泡堂游戏
 - 聊天室
+
 ```javascript
 // 公共类
 function Mediator() {
@@ -673,7 +710,7 @@ function User(name) {
 User.prototype.sendMessage = function(msg, receiver) {
   // msg = '[' + this.name + ']: ' + msg
   msg = `[${this.name}]: ${msg}`
-	mediator.publishMessage(msg, receiver)
+ mediator.publishMessage(msg, receiver)
 }
 let u1 = new User('Jack')
 let u2 = new User('Peter')
@@ -684,8 +721,10 @@ u3.sendMessage('Hi Guys!')
 ```
 
 ## 装饰器模式
+
 给一个函数赋能，增强它的某种能力，它能动态的添加对象的行为（动态地给函数赋能）
 原有方法维持不变，在原方法上挂载其它方法满足现有需求，实现同样的效果但增强了复用性
+
 ```javascript
 // AOP 装饰函数实现
 Function.prototype.before = function (fn) {
@@ -717,7 +756,9 @@ func()
 ```
 
 ## 观察者模式
+
 - 场景一 当观察的数据对象发生变化时，自动调用相应的函数。比如vue的双向绑定
+
 ```javascript
 var obj = {
   data: { list: [] }
@@ -732,6 +773,7 @@ Object.defineProperty(obj, 'list', {
   }
 })
 ```
+
 ```javascript
 // Proxy/Reflect 是 ES6 引入的新特性, 也可以使用其完成观察者模式, 示例如下(效果同上):
 var obj = {
@@ -745,7 +787,9 @@ var proxy = new Proxy(obj, {
 })
 obj.value = 1; // 调用相应的函数
 ```
+
 - 场景二 当调用对象里的某个方法时，就回调用相应的访问逻辑。比如给测试框架赋能的spy函数
+
 ```javascript
 // 下面来实现 sinon 框架的 spy 函数
 const sinon = {
@@ -782,9 +826,11 @@ obj.someFn()
 ```
 
 ## 适配器模式
+
 采用适配器模式，将不同的数据结构适配成展示组件所能接受的数据结构（别名包装器 wrapper）
 
 主要用于解决两个软件实体间接口之间不兼容的问题
+
 ```javascript
 // 老接口
 const getCityOld = (function () {
@@ -808,6 +854,7 @@ const cityAdaptor = (function() {
   return obj;
 })()
 ```
+
 ```typescript
 interface UploadFileType {
   uuid: string;
@@ -817,6 +864,7 @@ interface UploadFileType {
   status: string;
 }
 ```
+
 ```javascript
 // 目标角色
 class Target {
@@ -845,12 +893,13 @@ let adapter=new Adapter(adaptee);
 adapter.request();
 
 ```
+
 - 适配器模式主要是用来解决两个已有接口不匹配的问题，它不考虑这些接口是怎么实现的，也不考虑他们将来如何变化。适配器模式不需要改变已有的接口，就能够使它们协同工作
 - 装饰者模式和代理模式也不会改变原有对象的接口，但装饰者模式的作用是为了给对象增加功能，装饰者模式经常形成一条长的装饰链，而适配器模式通常只包装一次，代理模式是为了控制对象的访问，通常也只包装一次
 - 外观模式的作用倒是和适配器模式有点相似，有人把外观模式看成一组对象的适配器，但外观模式最显著的特点是定义了一个新的接口
 
-
 ## 总结各设计模式的关键词
+
 <table><tbody>
   <tr>
     <th>设计模式</th><th>特点</th><th>案例</th>
@@ -902,8 +951,8 @@ adapter.request();
   </tr>
 </table>
 
-
 三个设计原则
+
 - 单一职责原则（SRP）
   - 体现为一个对象（方法）只做一件事情
   - 运用： 代理模式、迭代器模式、单例模式和装饰者模式
@@ -922,13 +971,23 @@ adapter.request();
       - 使用回调函数
 
 ## 代码重构技巧
+
 ### 提炼函数
+
 ### 合并重复的条件片段
+
 ### 把条件分支语句提炼成函数
+
 ### 合理使用循环
+
 ### 提前让函数退出代替嵌套条件分支
+
 ### 传递对象参数替代过长的参数列表
+
 ### 尽量减少参数数量
+
 ### 合理使用链式调用
+
 ### 分解大类型
+
 ### 用return退出多重循环

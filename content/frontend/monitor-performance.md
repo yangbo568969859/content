@@ -1,13 +1,13 @@
-## js 性能监控和分析
+# js 性能监控和分析
 
 下图是 [Navigation Timing Level 1](https://www.w3.org/TR/navigation-timing/) 的处理模型，从当前浏览器窗口卸载旧页面开始，到新页面加载完成，整个过程一共分为 9 个模块：**提示卸载旧文档、重定向/卸载、应用缓存、DNS 解析、TCP 握手、HTTP 请求处理、HTTP 响应处理、DOM 处理、文档装载完成**
-![image](./image/timing-overview.png) 
-
+![image](./image/timing-overview.png)
 
 [Navigation Timing Level 2](https://www.w3.org/TR/navigation-timing-2/) 给出了新的时间线，新版的时间线将描述资源加载的时间用 PerformanceResourceTiming 对象封装了起来。如下图所示：
-![image](./image/timestamp-diagram.png) 
+![image](./image/timestamp-diagram.png)
 
-### 指标说明 
+## 指标说明
+
 |  指标   |  说明  |
 |  ----  | ----  |
 | navigationStart  | 表示从上一个文档卸载结束时的unix时间戳，如果没有上一个文档，这个值将和 fetchStart 相等。 |
@@ -31,7 +31,6 @@
 | domComplete  | 返回当前网页DOM结构生成时（即Document.readyState属性变为“complete”，以及相应的readystatechange事件发生时）的Unix毫秒时间戳。 |
 | loadEventStart  | load事件发送给文档，也即load回调函数开始执行的时间。 |
 | loadEventEnd  | load 事件的回调函数执行完毕的时间。 |
-
 
 ```javascript
 (function () {
@@ -91,7 +90,6 @@
 }());
 ```
 
-
 ### Chrome Performance面板
 
 Performance 是 Chrome 提供给我们的开发者工具，用于记录和分析我们的应用在运行时的所有活动。它呈现的数据具有实时性、多维度的特点，可以帮助我们很好地定位性能问题。
@@ -105,10 +103,10 @@ Performance 是 Chrome 提供给我们的开发者工具，用于记录和分析
 | 概览面板 | 对页面表现（行为）的一个概述。  |
 | 火焰图面板 | 可视化 CPU 堆栈(stack)信息记录。  |
 | 统计面板 | 以图表的形式汇总数据。  |
-![image](./image/google-performance.png) 
-
+![image](./image/google-performance.png)
 
 #### 概览面板
+
 | 数据类型 | 说明  |
 | ----     |  ---- |
 | FPS | 绿色的柱越高， FPS 值也越高，红色则说明可能出现了卡顿。  |
@@ -116,18 +114,21 @@ Performance 是 Chrome 提供给我们的开发者工具，用于记录和分析
 | NET | 蓝色 代表 HTML 文件，黄色 代表 Script 文件，紫色 代表 Stylesheets 文件， 绿色 代表 Media 文件，灰色 代表其他资源。  |
 
 #### 火焰图面板
+
 - 从不同的角度分析框选区域 。例如：Network，Frames, Interactions, Main等
 - 在 Flame Chart 面板上你可以看到三条线，蓝线代表 DOMContentLoaded 事件，绿线代表渲染开始的时间( time to first paint)，红线代表 load 事件
 
 #### 统计面板
+
 - Summary面板：概括了浏览器加载的总时间。
 - Bottom-Up面板：展示事件各个阶段耗费的时间。
 - Call Tree面板：查看事件的调用栈。
 - Event Log面板：事件日志信息。
 
-
 #### 从用户角度分析
+
 ##### 页面何时开始渲染 - FP & FCP
+
 - FP, first paint, 表示页面开始首次绘制的时间点，值越小约好。在 FP 时间点之前，用户看到的是导航之前的页面
 - FCP, first contentful paint, lighthouse 面板的六大指标之一，表示首次绘制任何文本、图像、非空白 canvas 或者 SVG 的时间点，值越小约好
 
@@ -154,6 +155,7 @@ observer.observe({type: 'paint'});
 ```
 
 ##### 页面何时渲染主要内容 - FMP & SI & LCP
+
 - FMP，first meaningful paint, 首次完成有意义内容绘制的时间点，值越小约好。官方资料: [FMP](https://web.dev/first-meaningful-paint)。
 - SI, speed index, 速度指标, lighthouse 面板中的六大指标之一，用于衡量页面加载期间内容的绘制速度，值越小约好。官方资料: SI。
 - LCP， lagest contentful paint， lighthouse 面板中的六大指标之一，完成最大内容绘制的时间点，值越小约好。官方资料: LCP。
@@ -173,16 +175,19 @@ new PerformanceObserver((entryList) => {
 ```
 
 ##### 何时可以交互 - TTI & TBT
+
 - TI, time to ineractive, 可交互时间， lighthouse 面板中的六大指标之一, 用于测量页面从开始加载到主要资源完成渲染，并能够快速、可靠地响应用户输入所需的时间, 值越小约好。 官方资料: TTI。
 - 和 FMP、SI 一样，官方并没有提供获取 TTI 的有效接口，只能通过 lighthouse 面板来查看，不会作为 Sentry 做性能分析的指标。
 
 计算TTI方式
+
 1. 先进行 First Contentful Paint 首次内容绘制；
 2. 沿时间轴正向搜索时长至少为 5 秒的安静窗口，其中，安静窗口的定义为：没有长任务且不超过 2 个正在处理的网络请求;
 3. 沿时间轴反向搜索安静窗口之前的最后一个长任务，如果没有找到长任务，则在 FCP 步骤停止执行。
 4. TTI 是安静窗口之前最后一个长任务的结束时间（如果没有找到长任务，则与 FCP 值相同）。
 
-- 收集 long task 
+- 收集 long task
+
 ```js
 let longTask = [];
 new PerformanceObserver((entryList) => {
@@ -197,7 +202,9 @@ new PerformanceObserver((entryList) => {
 }).observe({type: 'longtask', buffered: true});
 
 ```
+
 - 计算安静窗口
+
 ```js
 // 安静窗口的计算就有点复杂了。如何知道在 5s 的时间内请求数不超过 2 次呢 ？
 // 关于这一点，我们可以通过拦截网络请求加一个请求 pool 实现。
@@ -319,8 +326,10 @@ let TBT = longTask.reduce((initial, item) => initial + item.durationg - 50, 0);
 ```
 
 ##### 交互是否有延迟 - FID & MPFID & Long Task
+
 - FID，first input delay, 首次输入延迟，测量从用户第一次与页面交互（例如当他们单击链接、点按按钮或使用由 JavaScript 驱动的自定义控件）直到浏览器对交互作出响应，并实际能够开始处理事件处理程序所经过的时间。官方资料: FID。
 - FID 指标的值越小约好。通过 performanceObserver，我们可以获取到 FID 指标数据。
+
 ```js
 new PerformanceObserver((entryList) => {
   for (const entry of entryList.getEntries()) {
@@ -329,9 +338,11 @@ new PerformanceObserver((entryList) => {
   }
 }).observe({type: 'first-input', buffered: true});
 ```
+
 - MPFID, Max Potential First Input Delay，最大潜在首次输入延迟，用于测量用户可能遇到的最坏情况的首次输入延迟。和 FMP 一样，这个指标已经被废弃不再使用。
 - Long Task，衡量用户在使用过程中遇到的交互延迟、阻塞情况。这个指标，可以告诉我们哪些任务执行耗费了 50ms 或更多时间。官方资料: Long Task
 通过 performanceObserver, 我们可以获取到 Long Task 指标数据。
+
 ```js
 new PerformanceObserver(function(list) {
     var perfEntries = list.getEntries();
@@ -342,6 +353,7 @@ new PerformanceObserver(function(list) {
 ```
 
 ##### 页面视觉是否有稳定 - CLS
+
 - CLS, Cumulative Layout Shift, 累积布局偏移，用于测量整个页面生命周期内发生的所有意外布局偏移中最大一连串的布局偏移情况。官方资料: CLS。
 CLS, 值越小，表示页面视觉越稳定。通过 performanceObserver，我们可以获取到 CLS 指标数据。
 
@@ -355,6 +367,7 @@ new PerformanceObserver(function(list) {
 ```
 
 ##### 性能分析关键指标
+
 实际在做性能分析时，上面列举的性能指标并不会全部使用。
 
 如果是本地通过 lighthouse 进行性能分析，会使用 6 大指标: FCP、LCP、SI、TTI、TBT、CLS。这些指标涵盖了页面渲染、交互和视觉稳定性情况。

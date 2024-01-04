@@ -23,9 +23,9 @@
 
 - 应用阶段(输出渲染图元)
   - 通常由CPU实现，主要有下面三个任务
-  - 准备场景数据
+  - 准备场景数据，相机位置、视锥体、场景模型、光源等
   - 粗粒度剔除（剔除不可见的物体，提升渲染性能）
-  - 输出渲染图元
+  - 设置每个模型的渲染状态，材质、纹理、Shader等 输出渲染图元
 - 几何阶段(输出屏幕空间的顶点信息)
   - 通常在GPU上进行，决定绘制的图元，怎么绘制，在哪里绘制
 - 光栅化阶段
@@ -34,19 +34,31 @@
 ### 应用阶段
 
 - 把数据加载到显存(VRAM)中
+  - 硬盘(HardDiskDrive, HDD) -> 内存(RandomAccessMemory, RAM) -> 显存(VideoRandomAccessMemory, VRAM)
 - 设置渲染状态
   - 通过CPU设置渲染状态，指导GPU如何进行渲染工作，渲染状态定义了场景中网格怎么被渲染，如片元着色器，顶点着色器，光源属性，材质等。当没有更改渲染状态的时候，所有网格都使用一种渲染状态，看起来像是同一种材质
 - 调用Draw Call
-  - Draw Call 是一个命令，发起发CPU，接收方GPU。一次Drawcall命令指向一个需要被渲染的图元列表。GPU会根据渲染状态和所有输入的顶点数据进行计算，生成像素
+  - Draw Call 是一个命令，发起发CPU，接收方GPU。一次Drawcall命令指向一个需要被渲染的图元(Primitives)列表。GPU会根据渲染状态和所有输入的顶点数据进行计算，生成像素
+
+### GPU流水线
+
+![GPU流水线](./images/GPU_AssemblyLine.png)
 
 ### 几何阶段 和 光栅化阶段
 
 GPU渲染过程就是GPU流水线，对几何阶段和光栅化阶段开发者无法拥有绝对控制权，实现载体为GPU
 
 - 几何阶段 顶点数据
-  - 顶点着色器 - 曲面细分着色器 - 几何shader - 裁剪 - 屏幕映射
+  - 顶点着色器 vertexShader 完全可编程，实现顶点的空间变换、顶点着色等
+  - 曲面细分着色器 TessellationShader 可选着色器，用于细分图元
+  - 几何shader GeometryShader 可选着色器，执行逐图元着色操作
+  - 裁剪 Cliping 将不在相机视野内的顶点裁剪掉，可配置
+  - 屏幕映射 ScreenMapping 不可配置和变成
 - 光栅化阶段 光栅化就是将顶点数据转换为片元的过程。
-  - 三角形设置 - 三角形遍历 - 片元着色器 - 逐片元操作 - 屏幕像素
+  - 三角形设置 TriangleSet 固定函数阶段
+  - 三角形遍历 TriAngleTraversal 固定函数阶段
+  - 片元着色器 FragmentShader 完全可编程，实现逐片元的着色操作
+  - 逐片元操作 Per-FragmentOperations 修改颜色、深度缓冲、进行混合等。可配置
 
 #### 顶点着色器（Vertex Shader）
 
@@ -59,9 +71,15 @@ GPU渲染过程就是GPU流水线，对几何阶段和光栅化阶段开发者�
 - 坐标变换 (可以对顶点坐标进行变换，改变顶点的位置，可以通过改变顶点位置模拟水面和布料)
 - 逐顶点光照
 
-最基本工作： 将顶点坐标从模型空间转换为齐次裁剪空间
+最基本工作： 将顶点坐标从模型空间转换为齐次裁剪空间，最后得到归一化的设备坐标(Normalized Device Coordinates, NDC)
 
 #### 裁剪(Clipping)
+
+一个图元和相机视野有三种关系
+
+- 完全在视野内：继续传递给下一个阶段
+- 部分在视野内：需要进行裁剪(Clipping)，使用新的顶点来代替
+- 完全在视野外：不会向下传递
 
 这一步不可以编程。 由于场景可能会非常大，摄像机不会覆盖所有物体。在摄像机外的物体会被裁切。
 
@@ -72,34 +90,52 @@ GPU渲染过程就是GPU流水线，对几何阶段和光栅化阶段开发者�
 这一步输入的坐标依然是三维坐标。屏幕映射会将坐标的X,Y值转换到屏幕坐标系(Screen Coordinates)下。屏幕坐标决定了该像素点到屏幕的边缘有多远。
 而对于Z轴的分量，不会做任何处理。但是仍然会被保留，并和屏幕坐标系构成窗口坐标系(Window Coordinates)。这些值会传递到光栅化阶段。
 
+#### 三角形设置
+
+计算三角网格表示数据，计算每条边上的像素坐标
+
 #### 三角形遍历（Triangle Traversal）
 
-三角形遍历阶段会通过几何阶段计算的信息判断一个三角网格覆盖了哪些像素，并使用三角形顶点信息对覆盖区域的像素进行插值
-
-如果一个像素能被三角网格覆盖，就会生成一个片元（fragment）。这就叫三角形遍历，也被称作扫描变换（Scan Conversion）
+检查每个像素是否被一个三角网格所覆盖，是则生成一个片元，这就叫三角形遍历，也被称作扫描变换（Scan Conversion）
 
 片元是包含很多状态的集合，这些状态用来计算像素的最终颜色，包括（不限于）屏幕坐标，深度信息，顶点信息（法线，纹理坐标等）
 
 #### 片元着色器
 
-可以编程阶段
+可以编程阶段, 在DirectX中，称为像素着色器(PixelShader)。输出颜色值.. 纹理采样。
 
 片元着色器的输入是三角形遍历中插值得到的数据，他的输出是一个或多个颜色；这一阶段可以完成很多重要的渲染技术，如纹理采样（片元着色器只能影响单个片元）
 
 #### 逐片元操作
 
-主要任务
+在DirectX中，称为输出合并阶段(Output-Merger)。主要任务：
 
-- 决定每个片元可见性，需要进行很多测试，如深度测试和模板测试
+- 决定每个片元可见性，需要进行很多测试，如模板测试和深度测试
 - 如果通过测试，就将片元的颜色值和颜色缓冲区的颜色进行合并
+
+决定可见性：
+
+- 模板测试(StencilTest)：将片元位置的模板值，和参考值进行比较
+- 深度测试(DepthTest)：将片元的深度值，和深度缓冲区的深度值进行比较
 
 ## 分类
 
-1. HLSL语言，通过Direct3D编写的着色器程序，只能在Direct3D里面使用
-2. Cg语言 NVIDIA和微软合作的语言，Direct3D和Opengl都支持
-3. GLSL语言。支持OpenGL上编写Shader程序
+1. DirectX的HLSL语言(HighLevelShadingLanguage)，通过Direct3D编写的着色器程序，只能在Direct3D里面使用
+2. Cg语言(C for Graphic) NVIDIA和微软合作的语言，Direct3D和Opengl都支持
+3. OpenGL的GLSL语言(OpenGLShadingLanguage)
 
 unity使用shaderlab来进行着色程序的编写，对不同平台进行编译，重点支持Cg语言；
+
+## Draw Call
+
+DrawCall CPU调用图像编程接口，以命令GPU进行渲染的操作
+
+- CPU和GPU是如何实现并行工作的
+  - 命令缓冲区(CommandBuffer),让CPU和GPU可以并行工作。CPU向其添加命令，GPU从中读取命令，添加和读取的过程是相互独立的
+- 为什么DrawCall多了会影响帧率
+  - GPU渲染能力很强，速度往往快于CPU提交命令的速度，如果DrawCall的数量太多，CPU会耗费大量时间造成过载
+- 如何减少DrawCall
+  - 批处理(Batching),把很多小的DrawCall合并成一个大的DrawCall，更适合合并静态的物体，因为只需要合并一次
 
 ## 语法基础
 
@@ -117,6 +153,17 @@ Shader "MyShader" { // shader的名字
 
 ### Properties
 
+| 属性类型 | 默认值的定义语法 | 例子 |
+| -- | --- | ---- |
+| Int | number |  |
+| Float | number |  |
+| Range(min, max) | number |  |
+| Color | (number, number, number, number) |  |
+| Vector | (number, number, number, number) |  |
+| 2D | "defaultTexture" {} |  |
+| Cube | "defaultTexture" {} |  |
+| 3D | "defaultTexture" {} |  |
+
 1. name{"display name", type} = value;
 name 指的是属性的名字
 display name 是在属性检查器的名字
@@ -133,12 +180,20 @@ Cube：立方体纹理属性
 TextGen：纹理生成模式，纹理自动生成纹理坐标的模式，顶点shader会忽略这个选项
 ObjectLinear，EyeLinear，SphereMap，CubeReflect CubeNormal
 LightmapMod：光照贴图模式，如果设置这个选项，纹理会被渲染器的光线贴图影响
-举例：
 
-```shader
-_Metallic("Metallic", Range(0, 1)) = 0.5
-_Color("Color", Color) = (1, 1, 1, 1)
-_MainTex("Albedo(RGB)", Cube) = "skybox" {TextGen CubeReflect} // 定义一个立方体贴图纹理属性
+```C#
+Shader "shaderLearning/shaderbase"
+{
+  Properties{
+    _MianTex ("Main Tex", 2D) = "white" {}
+    _Int("Int", Int) = 1
+    _Float("Float", Float) = 1.0
+    _Range("Range", Range(1, 255)) = 1
+    _Vector("Vector", Vector) = (1, 1, 1, 1)
+    _Color("Color", Color)= (1, 1, 1, 1)
+    _Cube("Cube", Cube) = "skybox" {}
+  }
+}
 ```
 
 ### SubShader
@@ -150,9 +205,9 @@ _MainTex("Albedo(RGB)", Cube) = "skybox" {TextGen CubeReflect} // 定义一个�
 3. 通道的类型： RegularPass，UsePass，GrabPass
 4. 在通道中定义状态同时对整个子着色器可见，那么所有的通道可以共享状态
 
-```shader
+```C#
 SubShader {
-    Tags {"Queue", "Transparent"}
+    Tags { "RenderType"="Transparent"  "Queue" = "Transparent" "IgnoreProjector"="True"}
     Pass {
         Lighting Off // 关闭光照
         ...
@@ -164,10 +219,10 @@ SubShader {
 
 如果在SubShader块中设置了状态，就会应用到全部的Pass。可以在Pass中单独设置状态
 
-- Cull 设置剔除模式，剔除正面，背面，关闭
-- ZTest 设置深度测试时使用的函数
-- ZWrite 开启/关闭深度写入
-- Blend 开启并设置混合模式
+- Cull： Cull Back/Front/Off 设置剔除模式，剔除正面，背面，关闭
+- ZTest：ZTest Less Greater/LEqual/GEqual/Equal/NotEqual/Always 设置深度测试时使用的函数
+- ZWrite：ZWrite On/Off 开启/关闭深度写入
+- Blend：Blend SrcFactor DstFactor 开启并设置混合模式
 
 #### Tags
 
@@ -175,13 +230,13 @@ SubShader {
 
 标签类型
 
-- Queue 队列标签
-- RenderType 渲染类型
+- Queue 队列标签 控制渲染顺序，例如保证所有透明物体在不透明物体后渲染
+- RenderType 渲染类型 对着色器分类，例如透明不透明
 - DisableBatching 禁用批处理
 - ForceNoShadowCasting 强制不投阴影
-- IgnoreProjector 忽略投影
+- IgnoreProjector 忽略投影 通常用于半透明物体，是否不受Projector影响
 - CanUseSpriteAtlas 使用精灵图集
-- PreviewType  预览类型
+- PreviewType  预览类型 指定材质面板如何预览该材质，默认是球
 
 #### Pass通道
 
@@ -212,8 +267,8 @@ Pass也可以使用标签，不过不同于SubShader，Tags类型有
 
 ##### 特殊Pass
 
-- UsePass 插入所有来自其他着色器的给定名字的通道； UsePass "Shader/Name"; UsePass "Specular/BASE" 插入Specular中为BASE的通道(名字大写)
-- GrabPass 一种特殊的通道，捕获物体所在的位置的屏幕的内容，并写入一个纹理中，这个纹理能被用于后续通道中完成一些高级图像特效，后续通道可以使用 _GrabTexture进行访问
+- UsePass 使用该命令来复用其他UnityShader中的Pass
+- GrabPass 该Pass负责抓取屏幕并将结果储存在一张纹理中，以用于后续的Pass处理
 
 #### Fallback 降级
 
@@ -240,6 +295,12 @@ Surface Shader 是unity创造的着色器代码类型，定义在Pass中。需�
 - 如果光照数目少，使用顶点/片元着色器。
 - 有很多自定义渲染效果，顶点/片元着色器。
 
+UnityShader != 真正的Shader
+
+- 传统的Shader，仅可以编写特定的Shader，UnityShader可以在同一个文件里包含顶点和片元着色器
+- 传统Shader，无法设置渲染设置，如是否开启混合、深度测试
+- 传统Shader，需要编写冗长的代码设置输入输出。UnityShader只需声明属性，用彩纸来修改属性
+
 ### 基本类型表达式
 
 - 浮点类型 float half double
@@ -259,7 +320,7 @@ struct name {}
 ### 标准内置函数
 
 - abs(num) 绝对值
-- 三角函数
+- sin cos tan三角函数
 - cross(a, b) 两个向量求叉积
 - determinant(M) 矩阵得行列式
 - dot(a, b) 点积

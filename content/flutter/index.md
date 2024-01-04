@@ -1,3 +1,5 @@
+# flutter
+
 VS code 快捷创建flutter  
 Ctrl + Shift + P
 输入 Flutter: New Project

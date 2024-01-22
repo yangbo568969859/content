@@ -150,8 +150,38 @@
 | precision | 精确，缜密 |
 | **2023-07-28** | |
 | affiliate | 附属机构 |
-| | |
-| | |
+| **2024-01-17** | |
+| latency | 低延迟 |
+| augmented | 增强的 |
+| interoperable | 可互操作 |
+| infrastructure | 基础设施 |
+| validation | 验证 |
+| instantiation | 实例化 |
+| **2024-01-19** | |
+| separation | 分割，拆开 |
+| concern | 关心，忧虑 |
+| annotation | 注解 |
+| Intermediate Representation | 中间表示 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 | | |
 | | |
 | | |

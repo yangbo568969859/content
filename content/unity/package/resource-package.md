@@ -104,6 +104,7 @@ LeanTween 是一种高效的补间引擎，它提供许多与其他补间引擎�
 - [可视化着色器制作 Shader Graph(官方)](https://docs.unity3d.com/Packages/com.unity.shadergraph@12.1/manual/index.html)
 - [可视化着色器制作 Amplify Shader Editor](https://assetstore.unity.com/packages/tools/visual-scripting/amplify-shader-editor-68570)
 - [控制着色器的编译和关键字的使用 Shader Control](https://assetstore.unity.com/packages/vfx/shaders/shader-control-74817#content)
+- [头发shader](https://assetstore.unity.com/packages/vfx/shaders/advanced-hair-shader-pack-11331)
 
 ## store付费资源
 

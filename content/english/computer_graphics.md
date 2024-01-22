@@ -38,6 +38,7 @@
 | syntax | 句法 |
 | semantic | 语义 |
 | segmentation | 分割 |
+| segment | 段，瓣，部分 |
 | Comprehensive | 全面,综合的 |
 | programming | 编程，设计，程序设计 |
 | pace | 进度，步伐，脚步 |
@@ -48,6 +49,7 @@
 | references | 参考 |
 | discussion | 讨论 |
 | assignment | 作业，任务，分配 |
+| assigned | 分配，指定，派，分 |
 | due | 到期的，应有，应得 |
 | skeleton | 骨骼，骨架，框架 |
 | feedback | 反馈 |
@@ -150,10 +152,10 @@
 | explict | 明确的，不含糊 |
 | specified | 指定的 |
 | prefer | 更喜欢，宁可，情愿 |
-| assume | 承担，假设，设想 |
 | symmetry | 对称 |
 | cuboid | 长方体 |
 | resolution | 决议，分解，决心，解决 |
+| resolution display | 分辨率显示 |
 | typical | 典型，地道 |
 | uniform | 制服，均匀， |
 | irrelevant | 无关紧要的，不着边际的 |
@@ -173,7 +175,6 @@
 | planar | 平面的 |
 | interior | 内部的，室内，里面 |
 | interpolate | 插 |
-| barycentric | 重心 |
 | approximately | 大约的 |
 | discretize | 离散化 |
 | indicator | 指标，指示符 |
@@ -188,12 +189,14 @@
 | suffice | 满足，合格 |
 | jaggies | 锯齿状 |
 | **2023-12-04** | Rasterization 2 |
+| In general | 一般来说 |
 | evaluating | 评估 |
 | signal | 信号 |
 | process | 处理 |
 | appreciated | 赞赏，感激 |
 | practice | 实践 |
 | recap | 回顾，概括，翻新 |
+| uniformly | 均匀的 |
 | ubiquitious | 无处不在的 |
 | sensor | 传感器 |
 | artifacts | 瑕疵,人工制品 |
@@ -205,6 +208,206 @@
 | pattern | 模式，图案，格局，方式 |
 | motion | 运动，议案 |
 | illusion | 错觉，幻想 |
+| intermediate | 中间的 |
+| introduce | 介绍，采用 |
+| dig | 挖，开掘，发掘 |
+| implement | 实现，实施，执行 |
+| fourier Transfoem | 傅里叶变换 |
+| weighted sum | 加权和 |
+| periodic | 定期 |
+| reasonable | 合理，有理，在理 |
+| insufficient | 不足的，不够 |
+| adequately | 充分地 |
+| indistinguishable | 隐约 |
+| distinguish | 区分，区别，鉴别 |
+| certain | 某些，一定，确定 |
+| rid of | 摆脱 |
+| wise | 明智，英明，高明，合理 |
+| point-wise | 逐点 |
+| vice versa | 反之亦然 |
+| wide | 宽，广泛，大，广阔 |
+| dense | 稠，密 |
+| sparse | 疏，稀 |
+| essentially | 本质上，实质上 |
+| replica | 复制品，纺织品，副本 |
+| regular | 定期，正常，规则 |
+| costly | 昂贵，贵重 |
+| narrower | 窄，狭窄，狭小 |
+| approximate | 近似，大概 |
+| corresponding | 相应，对应的，通信的 |
+| MSAA | Multi sampling Antialiasing 多重采样抗锯齿 |
+| FXAA | Fast Approximate Antialiasing 快速近似抗锯齿 |
+| TAA | Temporal Antialiasing 时间抗锯齿 |
+| DLSS | Deep Learning Super Sampling |
+| miletones | 里程碑 |
+| **2023-01-09**  |  |
+| TA (Teaching Assistant) | 助教 |
+| Recruited | 招募，招 |
+| Recruiting | 招聘 |
+| additional | 额外的，另外 |
+| inspired | 启发，鼓舞，振奋 |
+| inspired by | 灵感来自，受到启发 |
+| overwrite | 覆盖 |
+| unresolved | 无法解决的 |
+| eventually | 终于，终究 |
+| suppose | 假设，假说 |
+| so far | 到目前为止，迄今 |
+| assuming | 假设，臆说 |
+| constant  | 常数，常量，恒定 |
+| implement | 实现，实施，执行 |
+| diagram | 图表，图解 |
+| perceptual | 知觉的，感性 |
+| toward | 往，对于 |
+| shininess | 光泽度 |
+| generated | 生成的 |
+| scattered | 疏散，零落，散漫 |
+| receive | 收到，获得，接受 |
+| intercept | 拦截，阻止 |
+| proportional | 成比例的，按比例 |
+| light falloff | 光衰减 |
+| independent | 独立的，单独，无关 |
+| coefficient | 系数 |
+| appearance | 出现，外形，外貌 |
+| existing | 现有，现 |
+| **2023-01-11**  |  |
+| term | 术语，项，用语；表示，表明；条件 |
+| specular | 镜面反射 |
+| barycentric | 重心 |
+| bright | 亮，光明 |
+| measure | 测量，衡量，计量 |
+| bisector | 平分线 |
+| plot | 情节，阴谋，策划 |
+| disregard | 漠视，置之度外，忽略 |
+| interpolate | 插 |
+| across | 横过，横 |
+| underlying | 潜在的，底层 |
+| consider | 考虑，认为，研究 |
+| infer | 推断，比量 |
+| scheme | 方案，格式，阴谋，策划 |
+| stage | 阶段，舞台 |
+| execute | 执行，进行，处决 |
+| perform | 履行，演出，施行 |
+| implementation | 履行，实现，实施 |
+| discrete | 独立，分离 |
+| integrated | 集成，整体 |
+| heterogeneius | 异质，合成物，异构 |
+| capability | 能力，性能，能耐 |
+| grain | 粮食，颗粒，纹理 |
+| piece | 片，一块，部分 |
+| **2023-01-12**  |  |
+| graded | 等差，等次 |
+| centroid | 矩心，形心 |
+| invariant | 不变的 |
+| magnification | 放大 |
+| insufficient | 不足 |
+| indicate | 表明，表示，指出 |
+| fractional | 分数，部分的，断片的 |
+| minified | 缩小，削减 |
+| overhead | 上，高的，上面的 |
+| estimate | 估计，预计，估量 |
+| anisotropic | 各向异性 |
+| diagonal | 对角线 |
+| **2023-01-15**  |  |
+| procedural | 程序 |
+| solid | 固体，坚实 |
+| micro | 微观，微 |
+| macro | 宏观，宏 |
+| spherical | 球形，圆 |
+| prone | 易于，倾向于 |
+| distortion | 失真，扭曲，畸变 |
+| textured | 组织，组成 |
+| fake | 假，伪造，伪装 |
+| perturb | 烦扰，惊讶 |
+| derivative | 衍生物，导数，派生词 |
+| elaborate | 阐述，铺陈，铺叙 |
+| FAQ | 常见问题 |
+| displacement | 位移，替换，换置 |
+| advanced | 高级，先进，进步 |
+| classifying | 分类，归类 |
+| satisfy | 满足，饱，合意 |
+| directly | 直，直接地，直截了当地 |
+| via | 通过，经由，途径 |
+| plug | 插头，塞子，栓 |
+| fractal | 分形 |
+| polynomial | 多项式 |
+| union | 联盟，工会，联合，协会，并集 |
+| instead of | 顶，而不是，代替 |
+| alternative | 异，二中择一的，选择性的，替代 |
+| tissue | 组织，绵纸，薄纸 |
+| liquid | 液体，水 |
+| exhibit | 展览，展出，陈列 |
+| Pros & Cons | 优点和缺点 |
+| exact | 精确，确切，准确 |
+| topology | 拓扑结构 |
+| flatland | 平原，平川 |
+| **2023-01-16**  |  |
+| extended | 长远，延长 |
+| quad | 四边形 |
+| quadratic | 二次的 |
+| piecewise | 分段的 |
+| recursion | 递归 |
+| recursively | 递归地 |
+| pyramid | 金字塔，锥体 |
+| rightward | 向右 |
+| degree | 度，程度，学位，等级 |
+| convex | 鼓，中凸的 |
+| widely | 广泛 |
+| generalize | 概括，归纳 |
+| partition | 划分，隔 |
+| spline | 样条线，仿样 |
+| patch | 补丁，傻瓜，瑕 |
+| separable | 可分离 |
+| corresponding | 相应，对应的，通信的 |
+| **2023-01-17**  |  |
+| academic | 学术的 |
+| preserve | 保留，保存，保持 |
+| tune | 调，曲调，调子 |
+| accroding | 符合，给予，合意 |
+| extraordinary | 非凡的 |
+| extraordinary vertex | 奇异点 |
+| convergence | 收敛，合流 |
+| overall | 总体，整体，全面 |
+| crease | 皱，折痕 |
+| maintain | 保持，维护，维持 |
+| collapse | 折叠，崩溃，倒塌 |
+| suppose | 假设，假说 |
+| quadric Error Metrics | 二次误差度量 |
+| metric | 指标 |
+| perform | 履行，演出，施行 |
+| related | 有关，连带 |
+| iteratively | 迭代地 |
+| greedy | 贪婪，贪心 |
+| fairly | 相当，比较，较 |
+| point-of-view | 角度，调头 |
+| well known(as we all know) | 知名，出名，闻名，众所周知 |
+| involve | 涉及，包括，包含 |
+| equality | 平等，相等 |
+| scale | 规模，尺度，比例 |
+| bias | 偏差 |
+| tolerance | 容忍度 |
+| **2023-01-18**  |  |
+| indirect | 间接 |
+| buggy | 越野车 |
+| straight | 直，直接 |
+| invariant | 不变的 |
+| reversal | 翻转 |
+| reciprocity | 互惠 |
+| gaze | 目光，凝视 |
+| abyss | 深渊 |
+| casting | 铸成，铸件，投射 |
+| generate | 产生 |
+| generally | 通常 |
+| pinhole | 针孔 |
+| go through | 经过，经历 |
+| transmission | 传输，传动，透射 |
+| substitute | 替代，替换，代替 |
+| acceleration | 加速度 |
+| derivation | 引出，来历，求导 |
+| exhaustively | 详尽的 |
+| entrie | 整个，全部，总体 |
+| ecosystem | 生态系统 |
+| slabs | 板 |
+| pairs | 对，双，副 |
 |  |  |
 |  |  |
 |  |  |
@@ -214,7 +417,40 @@
 |  |  |
 |  |  |
 |  |  |
-| **2023-12-01**  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 | assistant | 助手 |
 | professor | 教授 |
 | Research | 研究，考证 |
@@ -222,7 +458,6 @@
 | instructor | 讲师，导师 |
 | achievement | 成就 |
 | Staff | 职员,人员 |
-| Recruited | 招募，招 |
 | Synthesize | 合成 |
 | manipulate | 操纵，操作 |
 | **2023-12-05** |  |
@@ -243,13 +478,11 @@
 | adaptive | 适应性 |
 | **2023-12-07** |  |
 | ordinary | 普通的 |
-| extraordinary | 非凡的 |
 | indirect | 间接的 |
 | dimension | 方面，尺寸，维数 |
 | heuristic | 启发式 |
 | **2023-12-13** |  |
 | isotropic | 各向同性 |
-| anisotropic | 各向异性 |
 | reciprocity | 互惠 |
 | principle | 原则，原理 |
 | conservation | 保护 |
@@ -277,7 +510,6 @@
 | accumulate | 累积，积聚 |
 | irradiance | 辐照度 |
 | motivation | 动机 |
-| slabs | 板 |
 | correctness | 正确性 |
 | subtraction | 减法 |
 | division | 分配 |

@@ -358,7 +358,7 @@
 | patch | 补丁，傻瓜，瑕 |
 | separable | 可分离 |
 | corresponding | 相应，对应的，通信的 |
-| **2023-01-17**  |  |
+| **2023-01-17**  | 11 |
 | academic | 学术的 |
 | preserve | 保留，保存，保持 |
 | tune | 调，曲调，调子 |
@@ -385,7 +385,7 @@
 | scale | 规模，尺度，比例 |
 | bias | 偏差 |
 | tolerance | 容忍度 |
-| **2023-01-18**  |  |
+| **2023-01-18**  | 13 |
 | indirect | 间接 |
 | buggy | 越野车 |
 | straight | 直，直接 |
@@ -408,6 +408,81 @@
 | ecosystem | 生态系统 |
 | slabs | 板 |
 | pairs | 对，双，副 |
+| perpendicular | 垂直 |
+| infinitely | 无限的 |
+| **2023-01-22**  | 14 |
+| preprocess | 预处理 |
+| overlapping | 重叠，交叉 |
+| traversal | 遍历 |
+| inefficient | 效率低下，无法 |
+| extraneous | 无关的 |
+| due to | 由于 |
+| heuristic | 启发式 |
+| evenly | 平等，匀 |
+| stadium | 体育场 |
+| illustrate | 说明，显示，绘图 |
+| internal | 内部 |
+| Bounding Volumn Hierarchy(BVH) | 包围体层次结构 |
+| subset | 子集 |
+| dimension | 方面，维度，尺 |
+| criterion | 标准，准则，规范 |
+| termination | 终止，结束 |
+| disjoint | 不相交的 |
+| radiometry | 辐射测量 |
+| scarcely | 几乎没有，简直不 |
+| motivation | 动机，意志 |
+| irradiance | 辐照度 | Light Falling On A Surface |
+| radiance | 辐射率 | Light Traveling Along A Ray |
+| radiant intensity | 辐射强度 | Light Emitted From A Source |
+| radiant flux | 辐射通量 |
+| manner | 方式，态度，举止 |
+| electromagnetic | 电磁 |
+| denote | 表示，意味着 |
+| photon | 光子 |
+| flowing through | 流过 |
+| subtend | 对向，对着 |
+| steradians | 球面度 |
+| radians | 弧度 |
+| differential | 微分 |
+| **2023-01-23**  | 15 |
+| concept | 概念，学说 |
+| deliver | 交付，递送，传送 |
+| probability | 可能性，几率 |
+| barely | 仅仅，刚 |
+| incident | 事件，事变 |
+| incident radiance | 入射辐射率 |
+| falloff | 降落，减弱 |
+| quantity | 数量、份量、量 |
+| quality | 质量 |
+| BRDF(Bidirectional Reflectance Distribution Function) | 双向反射率分布函数 |
+| outward | 向外 |
+| potential | 潜在，潜力 |
+| discrete | 分离，离散的 |
+| that one | 那个 |
+| **2023-01-24**  | 16 |
+| perception | 洞察力，知觉，感觉 |
+| intern | 实习生，拘留 |
+| regarding | 关于，对于 |
+| brief | 简要，简短，短暂 |
+| integration | 一体化，积分 |
+| variance | 方差，变动 |
+| simplification | 简化 |
+| progressively | 逐步，渐渐 |
+| upon | 上，在...之上 |
+| lead to | 导致，引起，引出 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 |  |  |
 |  |  |
 |  |  |
@@ -461,7 +536,7 @@
 | Synthesize | 合成 |
 | manipulate | 操纵，操作 |
 | **2023-12-05** |  |
-| square | 正方形，广场 |
+| square | 正方形，广场，平方 |
 | implicit | 隐含的 |
 | explicit | 明确的 |
 | representation | 表示 |
@@ -508,8 +583,6 @@
 | lense | 镜片，镜头 |
 | precise | 精确的，准确 |
 | accumulate | 累积，积聚 |
-| irradiance | 辐照度 |
-| motivation | 动机 |
 | correctness | 正确性 |
 | subtraction | 减法 |
 | division | 分配 |

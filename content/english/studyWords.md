@@ -132,9 +132,9 @@
 | occupational | 职业的 |
 | prompt | 迅速的，提示，促使 |
 | tutorial | 教程 |
-| erroneously  | | I found that there was an instance of VS Code open that was erroneously not shown on my dock |
-| postponed | | postponed the restart |
-| remained | |
+| erroneously  | 错误地 | I found that there was an instance of VS Code open that was erroneously not shown on my dock |
+| postponed | 推迟，延迟 | postponed the restart |
+| remained | 留下来，停留，残留 |
 | encounter | 遇到，遭，领教 |
 | master | 主，硕士，大师，掌握 |
 | piece | 片，一块，部分 |
@@ -142,7 +142,6 @@
 | ultra | 过度的，极端主义者 |
 | concept | 概念，学说 |
 | illumination | 照明，光照，照亮 |
-| | |
 | **2023-06-6** | |
 | enthusiasm | 热情 |
 | **2023-07-18** | |
@@ -182,27 +181,41 @@
 |  |  |
 |  |  |
 |  |  |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-
-微信小程序，上传文件至服务器，第二天定时推送订阅至手机
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |

@@ -1,6 +1,6 @@
 # Computer Graphics Words
 
-| english | translate | sentence |
+| english | translate |
 | --- | ---- | ------ |
 | **2023-11-04** | Computer Graphics |
 | Fundamental | 基本的 |
@@ -431,9 +431,9 @@
 | radiometry | 辐射测量 |
 | scarcely | 几乎没有，简直不 |
 | motivation | 动机，意志 |
-| irradiance | 辐照度 | Light Falling On A Surface |
-| radiance | 辐射率 | Light Traveling Along A Ray |
-| radiant intensity | 辐射强度 | Light Emitted From A Source |
+| irradiance | 辐照度 | Light Falling On A Surface (power per unit area) |
+| radiance | 辐射率 | Light Traveling Along A Ray (power per solid angle, per projected unit area) |
+| radiant intensity | 辐射强度 | Light Emitted From A Source (power per solid angle) |
 | radiant flux | 辐射通量 |
 | manner | 方式，态度，举止 |
 | electromagnetic | 电磁 |
@@ -455,7 +455,7 @@
 | quantity | 数量、份量、量 |
 | quality | 质量 |
 | BRDF(Bidirectional Reflectance Distribution Function) | 双向反射率分布函数 |
-| outward | 向外 |
+| outward | 向外，朝外，往外 |
 | potential | 潜在，潜力 |
 | discrete | 分离，离散的 |
 | that one | 那个 |
@@ -470,30 +470,29 @@
 | progressively | 逐步，渐渐 |
 | upon | 上，在...之上 |
 | lead to | 导致，引起，引出 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| estimate | 估计，预计，估量 |
+| glossy | 光滑，光泽 |
+| involve | 涉及，包括 |
+| numerically | 数字上 |
+| in the following | 在下面的 |
+| suppose | 假设，假说，假定 |
+| abuse | 滥用，谩骂，弊端 |
+| a little bit | 一下儿 |
+| concept | 概念，学说 |
+| fancy | 幻想，花俏 |
+| explosion | 爆炸 |
+| explode | 爆炸，爆发 |
+| dilemma | 困境，进退两难 |
+| indeed | 确实，的确 |
+| roulette | 轮盘赌 |
+| manually | 手动 |
+| accidentally | 偶然 |
+| introductory | 例，前言的 |
+| arbitrary | 随意，独断，肆意 |
+| discrepancy | 差异，出入 |
+| unidirectional | 单向 |
+| bidirectional | 双向 |
+| metropolis | 都会，都市 |
 |  |  |
 |  |  |
 |  |  |

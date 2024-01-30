@@ -15,4 +15,9 @@ git commit -m 'update .gitignore'
 git rm -r --cached src/main/resources/application-local.yml
 ```
 
-### 
+### You have not concluded your merge (MERGE_HEAD exists)
+
+Undo the merge and pull again.
+To undo a merge:
+git merge --abort [Since git version 1.7.4]
+git reset --merge [prior git versions]

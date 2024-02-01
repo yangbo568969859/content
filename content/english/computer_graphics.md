@@ -493,7 +493,40 @@
 | unidirectional | 单向 |
 | bidirectional | 双向 |
 | metropolis | 都会，都市 |
-|  |  |
+| **2023-01-31**  | 17 |
+| appearances | 外观，外形，外貌 |
+| work out | 制定，编制， |
+| as much as possible | 尽量 |
+| pseudocode | 伪代码 |
+| pseudo | 冒充的 |
+| ideal | 理想的 |
+| absorption | 吸收，专心 |
+| in addition to | 除了 |
+| medium | 中等，中介，介质，媒介 |
+| vacuum | 真空 |
+| diamond | 钻石 |
+| internal | 内部，内置 |
+| optically | 光学的 |
+| polarization | 极化，偏振 |
+| grazing angle | 琼射角 |
+| dielectric | 电介质 |
+| conductor | 导体 |
+| rough | 粗糙的，粗暴，大概 |
+| bumpy  | 凹凸不平 |
+| act | 法案，法令，作为，举动 |
+| concentrated | 集中，密集，浓缩 |
+| spread | 传播，扩散，蔓延 |
+| azimuthal | 方位角 |
+| orient |  |
+| orientation | 方向，取向 |
+| brushed | 拉过绒的 |
+| metal | 金属 |
+| velvet | 丝绒，天鹅绒 |
+| negative | 负极，消极 |
+| reciprocity | 互惠 |
+| derive | 派生，导源 |
+| present | 当前，现在，当今 |
+| retro | 回归 |
 |  |  |
 |  |  |
 |  |  |

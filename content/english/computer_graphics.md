@@ -516,6 +516,7 @@
 | act | 法案，法令，作为，举动 |
 | concentrated | 集中，密集，浓缩 |
 | spread | 传播，扩散，蔓延 |
+| What kind of | 什么样的 |
 | azimuthal | 方位角 |
 | orient |  |
 | orientation | 方向，取向 |
@@ -529,27 +530,27 @@
 | retro | 回归 |
 | regularly | 经常 |
 | desirable | 合意,要得 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| pan | 锅 |
+| optical | 光纤的,可见的 |
+| clever | 聪明,巧妙,高明 |
+| varying | 时大时小,变化的 |
+| **2023-02-04**  | 18 |
+| proposal | 提议,建议 |
+| extremely | 非常,极其 |
+| unbiased | 不偏不倚,持平 |
+| instant | 立即的,瞬间,即刻 |
+| estimate | 估计,预计,预算 |
+| no matter | 不管,不论 |
+| consistent | 一贯,连贯,如一 |
+| converge | 汇流,汇合,汇集 |
+| implement | 实行,实施,执行 |
+| quite | 相当,很,比较 |
+| perturb | 扰乱,烦扰,惊讶 |
+| exist | 存在 |
+| existing | 现存的,现有 |
+| rate | 速率,速度 |
+| guarantee | 保证,担保,确保 |
+| caustic | 腐蚀性,尖刻 |
 |  |  |
 |  |  |
 |  |  |

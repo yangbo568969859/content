@@ -556,31 +556,31 @@
 | lit | 发光的 |
 | treated | 对待的,招待的 |
 | emerge | 出现,产生,出来 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| participate | 参加，参与，加入 |
+| fur | 毛皮 |
+| fiber | 纤维 |
+| granular | 颗粒 |
+| translucent | 半透明 |
+| procedural | 程序 |
+| absorb | 专心，吸收，吸取 |
+| absorption | 吸收 |
+| phase | 阶段，时期 |
+| angular | 有角的 |
+| cuticle | 表皮 |
+| interaction | 相互作用 |
+| cortex | 皮质 |
+| diffusive | 扩散的 |
+| saturated | 饱和的 |
+| medulla | 髓质 |
+| pigment | 颜料，色素 |
+| characteristic | 特性，特征 |
+| violate | 违反，侵犯，违背 |
+| assumption | 臆测，采取 |
+| eneralization | 普遍化 |
+| generalization | 概括，一般化 |
+| twisted | 捻，拧，搓，歪曲 |
+| weaving | 编织，编 |
+| overall | 总体，整体，全面 |
 |  |  |
 |  |  |
 |  |  |

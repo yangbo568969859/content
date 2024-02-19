@@ -594,8 +594,8 @@
 | synthesis | 合成 |
 | capture | 捕获 |
 | precise | 精确，准确，确切 |
-|  |  |
-|  |  |
+| integrate | 整合，结合，统一 |
+| focal | 焦 |
 |  |  |
 |  |  |
 |  |  |

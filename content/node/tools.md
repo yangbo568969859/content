@@ -37,5 +37,3 @@ npm 的 .npmrc 文件在哪里？缓存及全局包文件在什么位置？
   - 第一种是直接删除缓存文件，找到C盘下我的用户名下的.npmrc文件删除即可
   - 第二种是执行：npm cache clean --force，同样达到清除缓存文件的目的
   - 清除后，再重新安装
-- Error: EPERM: operation not permitted, unlink
-  - 

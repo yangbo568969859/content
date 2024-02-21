@@ -619,17 +619,17 @@
 | chief | 首席，长官，领袖 |
 | conjugate | 共轭 |
 | corresponding | 相应，对应的，通信的 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| permissible | 合法的，可允许的 |
+| demonstration | 示范，表明，游行 |
+| **2023-02-21**  | 20 |
+| perception | 知觉，感知 |
+| rope | 绳，绳子 |
+| rehearsal | 排演，复述，练习 |
+| reproduction | 复制，再生产 |
+| backdrop | 背景，帷幕 |
+| stationary | 固定式 |
+| parameterize | 参数化 |
+| grayscale snapshot | 灰度快照 |
 |  |  |
 |  |  |
 |  |  |

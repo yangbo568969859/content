@@ -541,7 +541,6 @@
 | estimate | 估计,预计,预算 |
 | no matter | 不管,不论 |
 | consistent | 一贯,连贯,如一 |
-| converge | 汇流,汇合,汇集 |
 | implement | 实行,实施,执行 |
 | quite | 相当,很,比较 |
 | perturb | 扰乱,烦扰,惊讶 |
@@ -596,30 +595,30 @@
 | precise | 精确，准确，确切 |
 | integrate | 整合，结合，统一 |
 | focal | 焦 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| equivalent | 当量，相等，同样 |
+| wide | 宽，广泛，广阔 |
+| telephone |  |
+| convention | 公约，惯例，常规 |
+| maintain | 保持，维护，维持 |
+| proportion | 比例，比重 |
+| exposure | 曝光，接触，暴露，拆穿 |
+| aperture | 光圈，孔，隙缝 |
+| amplication | 扩大，放大 |
+| analog | 类似物，相似体 |
+| trade | 行业，商业，换，营业，贸易的 |
+| sensitive | 敏感的，感受性 |
+| diameter | 直径，迳 |
+| informal | 随便，非正式的 |
+| handshake | 握手 |
+| rolling | 轰响，波荡 |
+| trade off | 卖掉，权衡 |
+| approximation | 近似 |
+| thin | 薄，细，瘦 |
+| aberration | 过失 |
+| arbitrarily | 任意的，武断的 |
+| chief | 首席，长官，领袖 |
+| conjugate | 共轭 |
+| corresponding | 相应，对应的，通信的 |
 |  |  |
 |  |  |
 |  |  |

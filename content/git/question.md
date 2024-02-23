@@ -21,3 +21,5 @@ Undo the merge and pull again.
 To undo a merge:
 git merge --abort [Since git version 1.7.4]
 git reset --merge [prior git versions]
+
+### .git 文件过大

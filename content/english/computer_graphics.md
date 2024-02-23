@@ -254,7 +254,6 @@
 | so far | 到目前为止，迄今 |
 | assuming | 假设，臆说 |
 | constant  | 常数，常量，恒定 |
-| implement | 实现，实施，执行 |
 | diagram | 图表，图解 |
 | perceptual | 知觉的，感性 |
 | toward | 往，对于 |
@@ -541,7 +540,6 @@
 | estimate | 估计,预计,预算 |
 | no matter | 不管,不论 |
 | consistent | 一贯,连贯,如一 |
-| implement | 实行,实施,执行 |
 | quite | 相当,很,比较 |
 | perturb | 扰乱,烦扰,惊讶 |
 | exist | 存在 |
@@ -630,6 +628,53 @@
 | stationary | 固定式 |
 | parameterize | 参数化 |
 | grayscale snapshot | 灰度快照 |
+| critical | 临界，严重，批判，要紧 |
+| Early  | 早期，初，先 |
+| recall | 召回，记得，回忆，调回 |
+| strength | 强度，实力，力量 |
+| stiffness | 刚性，刚度 |
+| proportion | 比例，比重，面积 |
+| oscillate | 摆动，摆 |
+| derivative | 衍生物，导数，派生词 |
+| notation | 符号，注释，简谱 |
+| damp | 阻尼，潮湿， |
+| damping | 减震 |
+| viscous | 粘的，粘性的 |
+| rusty | 生疏，腐烂的 |
+| driven | 驱动的 |
+| sheet | 片，薄板，单 |
+| resist | 抗，抵抗，反抗 |
+| bending | 弯曲， |
+| finite | 有限 |
+| scalable | 延展 |
+| propulsion | 动力，运动 |
+| attraction | 引力，吸力 |
+| repulsion | 推斥，拒绝 |
+| friction | 摩擦 |
+| gravitational | 引力 |
+| universal | 普遍，万能，普及 |
+| university | 大学 |
+| galaxy | 星系，银河系 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 |  |  |
 |  |  |
 |  |  |

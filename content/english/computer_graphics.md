@@ -371,7 +371,7 @@
 | collapse | 折叠，崩溃，倒塌 |
 | suppose | 假设，假说 |
 | quadric Error Metrics | 二次误差度量 |
-| metric | 指标 |
+| metric | 指标，测量的，韵律的 |
 | perform | 履行，演出，施行 |
 | related | 有关，连带 |
 | iteratively | 迭代地 |
@@ -628,6 +628,11 @@
 | stationary | 固定式 |
 | parameterize | 参数化 |
 | grayscale snapshot | 灰度快照 |
+| **2023-02-25**  | 21 |
+| misuse | 滥用，虐待 |
+| conjunction | 连词，连接词 |
+| dominate | 支配，主宰，控制 |
+| sequence | 顺序，排序，序列 |
 | critical | 临界，严重，批判，要紧 |
 | Early  | 早期，初，先 |
 | recall | 召回，记得，回忆，调回 |
@@ -659,31 +664,31 @@
 | toward | 往，对于 |
 | emergent | 涌现的 |
 | molecular | 分子 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| articulated | 说出，挂钩，咬 |
+| absence | 缺席，不在 |
+| convenient | 方便，便利 |
+| consuming | 消耗，浪费 |
+| rapid | 快速，迅速，急剧 |
+| intuitive | 直观的，直觉的 |
+| defarmation | 形变，经 |
+| puppet | 木偶，傀儡 |
+| manual | 手册，手工 |
+| effort | 功夫，成就，气力 |
+| scheme | 方案，格式，阴谋 |
+| realism | 写实感，真实感 |
+| meet | 满足，会面，见面 |
+| alternation | 改造，变动 |
+| equipment | 设备，装备，器材 |
+| magnetic | 磁性，磁 |
+| tether | 拘束 |
+| restrict | 限制，拘束 |
+| facial | 表面的，脸部的 |
+| valley | 山谷，流域 |
+| artificial | 假的，虚假的，人造的 |
+| approach | 途径，态度，逼近 |
+| achieve | 实现，达到，做到 |
+| convincing | 使人信服的 |
+| sufficient | 充足，足够 |
 |  |  |
 |  |  |
 |  |  |

@@ -621,7 +621,6 @@
 | demonstration | 示范，表明，游行 |
 | **2023-02-21**  | 20 |
 | perception | 知觉，感知 |
-| rope | 绳，绳子 |
 | rehearsal | 排演，复述，练习 |
 | reproduction | 复制，再生产 |
 | backdrop | 背景，帷幕 |
@@ -636,6 +635,7 @@
 | critical | 临界，严重，批判，要紧 |
 | Early  | 早期，初，先 |
 | recall | 召回，记得，回忆，调回 |
+| rope | 绳，绳子 |
 | strength | 强度，实力，力量 |
 | stiffness | 刚性，刚度 |
 | proportion | 比例，比重，面积 |
@@ -649,7 +649,7 @@
 | driven | 驱动的 |
 | sheet | 片，薄板，单 |
 | resist | 抗，抵抗，反抗 |
-| bending | 弯曲， |
+| bending | 弯曲 |
 | finite | 有限 |
 | scalable | 延展 |
 | propulsion | 动力，运动 |

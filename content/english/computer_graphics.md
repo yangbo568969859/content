@@ -655,10 +655,10 @@
 | universal | 普遍，万能，普及 |
 | university | 大学 |
 | galaxy | 星系，银河系 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| trajectory | 弹道，轨道 |
+| toward | 往，对于 |
+| emergent | 涌现的 |
+| molecular | 分子 |
 |  |  |
 |  |  |
 |  |  |

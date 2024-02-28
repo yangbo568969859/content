@@ -700,6 +700,7 @@
 | sign up | 报名 |
 | improvement | 起色，丰富 |
 | instability | 松弛，松懈 |
+| instability | 松弛，松懈 |
 |  |  |
 |  |  |
 |  |  |

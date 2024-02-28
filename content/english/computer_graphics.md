@@ -679,6 +679,10 @@
 | vary | 变化，不等，变换 |
 | effort | 功夫，成就，气力 |
 | scheme | 方案，格式，阴谋 |
+| over time | 超时的，加班的 |
+| approach | 途径，态度，逼近 |
+| execute | 执行，进行，施行 |
+| extract | 提取，摘录，抽出 |
 | realism | 写实感，真实感 |
 | meet | 满足，会面，见面 |
 | alternation | 改造，变动 |
@@ -689,11 +693,10 @@
 | facial | 表面的，脸部的 |
 | valley | 山谷，流域 |
 | artificial | 假的，虚假的，人造的 |
-| approach | 途径，态度，逼近 |
 | achieve | 实现，达到，做到 |
 | convincing | 使人信服的 |
 | sufficient | 充足，足够 |
-|  |  |
+| **2023-02-28**  | 22 |
 |  |  |
 |  |  |
 |  |  |

@@ -699,20 +699,19 @@
 | **2023-02-28**  | 22 |
 | sign up | 报名 |
 | improvement | 起色，丰富 |
-| instability | 松弛，松懈 |
-| instability | 松弛，松懈 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| instability | 松弛，松懈，不稳定 |
+| ordinary | 普遍，一般，通常 |
+| differential | 微分 |
+| integration | 积分，一体化 |
+| diverge | 偏离，发散 |
+| finate | 有限 |
+| accuracy | 准确性，精密 |
+| proceed | 继续，前往 |
+| compound | 复合，合成，院落 |
+| lack | 缺乏，缺少 |
+| disastrous | 惨重，不得了 |
+| acceptable | 合适，和蔼可亲 |
+| constrain | 压抑，拘束，压迫 |
 |  |  |
 |  |  |
 |  |  |

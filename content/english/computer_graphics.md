@@ -697,9 +697,9 @@
 | convincing | 使人信服的 |
 | sufficient | 充足，足够 |
 | **2023-02-28**  | 22 |
-|  |  |
-|  |  |
-|  |  |
+| sign up | 报名 |
+| improvement | 起色，丰富 |
+| instability | 松弛，松懈 |
 |  |  |
 |  |  |
 |  |  |

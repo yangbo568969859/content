@@ -712,6 +712,8 @@
 | disastrous | 惨重，不得了 |
 | acceptable | 合适，和蔼可亲 |
 | constrain | 压抑，拘束，压迫 |
+| constrain | 压抑，拘束，压迫 |
+| constrain | 压抑，拘束，压迫 |
 |  |  |
 |  |  |
 |  |  |

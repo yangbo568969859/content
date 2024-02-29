@@ -303,7 +303,6 @@
 | fractional | 分数，部分的，断片的 |
 | minified | 缩小，削减 |
 | overhead | 上，高的，上面的 |
-| estimate | 估计，预计，估量 |
 | anisotropic | 各向异性 |
 | diagonal | 对角线 |
 | **2023-01-15**  |  |
@@ -317,7 +316,6 @@
 | textured | 组织，组成 |
 | fake | 假，伪造，伪装 |
 | perturb | 烦扰，惊讶 |
-| derivative | 衍生物，导数，派生词 |
 | elaborate | 阐述，铺陈，铺叙 |
 | FAQ | 常见问题 |
 | displacement | 位移，替换，换置 |
@@ -469,7 +467,6 @@
 | progressively | 逐步，渐渐 |
 | upon | 上，在...之上 |
 | lead to | 导致，引起，引出 |
-| estimate | 估计，预计，估量 |
 | glossy | 光滑，光泽 |
 | involve | 涉及，包括 |
 | numerically | 数字上 |
@@ -576,7 +573,6 @@
 | generalization | 概括，一般化 |
 | twisted | 捻，拧，搓，歪曲 |
 | weaving | 编织，编 |
-| overall | 总体，整体，全面 |
 | elliptical | 简练，椭圆的 |
 | glint | 闪烁，闪闪发光的 |
 | trend | 趋势，潮流，趋向 |
@@ -712,8 +708,43 @@
 | disastrous | 惨重，不得了 |
 | acceptable | 合适，和蔼可亲 |
 | constrain | 压抑，拘束，压迫 |
-| constrain | 压抑，拘束，压迫 |
-| constrain | 压抑，拘束，压迫 |
+| practical | 实用，实际 |
+| informally | 非正式的 |
+| quantize | 量化 |
+| truncation | 舍去 |
+| prevent | 防止，预防，阻止 |
+| constrained | 强迫，拘泥 |
+| dissipate | 消散，虚度 |
+| a bit | 一点，积分，稍微 |
+| via | 通过，经由，途径 |
+| correct | 纠正，更正 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 |  |  |
 |  |  |
 |  |  |
@@ -790,7 +821,6 @@
 | approach | 方法、途径 |
 | caustics | 腐蚀性的，尖刻 |
 | density | 密度，浓度 |
-| estimate | 估计 |
 | estimation | 估计，预算，意见 |
 | equation | 方程 |
 | satisfies | 满足 |

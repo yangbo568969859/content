@@ -76,4 +76,3 @@ shceme :// user:passwd@ host:port path ?query #fragment
 - 无状态
 - 明文传输
 - 队头阻塞
-

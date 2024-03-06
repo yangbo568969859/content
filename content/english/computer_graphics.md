@@ -700,10 +700,12 @@
 | ordinary | 普遍，一般，通常 |
 | differential | 微分 |
 | integration | 积分，一体化 |
+| inaccurate | 不准确 |
 | diverge | 偏离，发散 |
 | finate | 有限 |
 | accuracy | 准确性，精密 |
 | proceed | 继续，前往 |
+| critical | 临界，严重，批评，紧要 |
 | compound | 复合，合成，院落 |
 | lack | 缺乏，缺少 |
 | disastrous | 惨重，不得了 |

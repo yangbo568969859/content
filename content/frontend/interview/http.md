@@ -77,6 +77,10 @@ shceme :// user:passwd@ host:port path ?query #fragment
 - 明文传输
 - 队头阻塞
 
+### TLS 1.2 握手过程
+
+
+
 ### HTTP/2
 
 - 头部压缩
@@ -106,4 +110,6 @@ shceme :// user:passwd@ host:port path ?query #fragment
 
 然后是帧类型，大概可以分为数据帧和控制帧两种，数据帧用来存放HTTP报文，控制帧用来管理流的传输
 
-接下来的一个字节是帧标志
+接下来的一个字节是帧标志，里面一共有8各标志位，常用的有END_HEADERS表示头数据结束，END_STREAM表示单方向数据发送结束
+
+后4各字节是 StreamId 也就是流标识符，有了它，接收方就能从乱序的二进制帧中选择ID相同的帧，按顺序组装称请求/响应报文

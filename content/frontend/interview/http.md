@@ -79,8 +79,6 @@ shceme :// user:passwd@ host:port path ?query #fragment
 
 ### TLS 1.2 握手过程
 
-
-
 ### HTTP/2
 
 - 头部压缩

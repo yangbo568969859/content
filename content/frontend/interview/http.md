@@ -1,6 +1,6 @@
 # HTTP
 
-## http状态吗
+## http状态码
 
 ### 状态码分为5类
 
@@ -111,3 +111,37 @@ shceme :// user:passwd@ host:port path ?query #fragment
 接下来的一个字节是帧标志，里面一共有8各标志位，常用的有END_HEADERS表示头数据结束，END_STREAM表示单方向数据发送结束
 
 后4各字节是 StreamId 也就是流标识符，有了它，接收方就能从乱序的二进制帧中选择ID相同的帧，按顺序组装称请求/响应报文
+
+## http 各版本区别
+
+### http1.0
+
+无法复用链接，完成即断开，重新慢启动和TCP3次握手
+head of line blocking: 线头阻塞，导致请求之间相互影响
+
+### http1.1
+
+- 长连接(默认keep-alive)，复用
+- host字段指定对应的虚拟站点
+- 新增功能有
+  - 断点续传
+  - 身份验证
+  - 状态管理
+  - cache缓存
+
+### http2.0
+
+多路复用
+二进制分帧
+头部压缩
+服务端推送
+
+### https
+
+证书
+ssl加密
+端口443
+
+## Websocket
+
+Websocket 是一个持久化的协议，基于http，服务端可以主动push

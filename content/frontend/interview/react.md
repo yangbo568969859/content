@@ -17,27 +17,28 @@
 
 初始化阶段，由ReactDOM.render()方法触发初次渲染，会调用以下钩子函数
 
-- constructor 构造函数，通常用于初始化组件的状态和绑定方法
+- constructor
 - componentWillMount
-- render() 是用来返回组件UI结构，它是一个纯函数，其中不应该包含任何副作用或改变状态的操作
-- componentDidMount 这个函数是在组件挂载到DOM后执行的，可以在这里获取数据、进行一些异步请求或DOM操作
+- render()
+- componentDidMount
 
 更新阶段 由组件内部this.setState()或父组件重新render触发
 
-- shouldComponentUpdate 这个函数是用来判断组件是否需要重新渲染，返回一个布尔值，可以优化性能
+- shouldComponentUpdate
 - componentWillUpdate
 - render()
-- componentDidUpdate(prevProps,prevState) 组件更新后触发，用于处理更新后的操作
+- componentDidUpdate(prevProps,prevState)
 
 卸载阶段 由ReactDOM.unmountComponentAtNode()方法触发
 
-- componentWillUnmount 这个函数是在组件卸载前执行的，可以在这里做一些清理工作，比如取消订阅、清除定时器、取消异步请求或者移除事件监听
+- componentWillUnmount
 
 ### 新的生命周期
 
 初始化阶段
 
 - constructor
+  - 构造函数，通常用于初始化组件的状态(state)和绑定方法 (注意：不能在constructor中调用setState，因为第一次render还未执行,DOM节点还未挂载)
 - **getDerivedStateFromProps(nextProps, prevState)** 是一个静态方法，用于在组件接收新的props时计算并返回新的state，用来替代不推荐使用的componentWillReceiveProps
   - 静态方法：getDerivedStateFromProps() 是一个静态方法，因此不能访问实例的this，它只接收两个参数：nextProps 和 prevState
   - 计算新的 state 通常，你可以在这个方法内部根据nextProps 和 prevState 来计算并返回新的state。这个新的state将在组件更新时应用
@@ -67,8 +68,16 @@
 卸载阶段
 
 - componentWillUnmount
+  - 这个函数是在组件卸载前执行的，可以在这里做一些清理工作，比如取消订阅、清除定时器、取消异步请求或者移除事件监听
 
 ## React 组件通讯
+
+- props
+- Provider,Consumer,Context
+  - Context 在react 16.x 之前是定义一个全局的对象，类似于vue的eventBus，如果组件要使用到该值直接通过this.context获取
+- EventEmitter
+- onRef
+- ref
 
 ## React 全局数据
 

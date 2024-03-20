@@ -72,14 +72,38 @@
 
 ## React 组件通讯
 
-- props
-- Provider,Consumer,Context
+- props (父子组件通信)
+- Provider,Consumer,Context (跨级组件间通信)
   - Context 在react 16.x 之前是定义一个全局的对象，类似于vue的eventBus，如果组件要使用到该值直接通过this.context获取
-- EventEmitter
+- EventEmitter (非嵌套组件间通信)
 - onRef
 - ref
 
 ## React 全局数据
+
+### Redux
+
+Redux的灵感来源于Flux架构和函数式编程原理，状态更新可预测、可跟踪，提倡使用单一存储
+
+单向数据流
+
+- 用户在view层触发某个事件，通过dispatch发送了action和payload
+- action和payload被传入reducer函数，返回一个新的state
+- store拿到reducer返回的state并做更新，同时通知view层进行re-render
+
+三大原则
+
+- 单一数据源：整个应用的全局state被存储在一颗objectTree中，并且这个objectTree只存在唯一一个store
+- state是只读的：唯一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象
+- 纯函数修改：通过reducer修改状态，reducer是纯函数，它接收之前的state和action，返回一个新的state
+
+缺点：
+
+- 学习曲线陡峭
+- 大量的模板代码
+- 状态量多的情况，性能较差
+- reducer需要返回新的对象，如果更新的值层级较深，更新成本也很高
+- 更多的内存占用，由于采用单一数据源，所有状态存储在一个state中，当某些状态不在需要使用时，也不会被垃圾回收器释放资源
 
 ## React Hooks
 

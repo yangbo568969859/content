@@ -42,8 +42,12 @@
 触发条件
 
 - 根层叠上下文
-- position
+- position不为static并且设置了z-index属性
 - css3属性 flex|transform|opacity|filter|will-change|-wibkit-oerflow-scrolling
+  - opacity值不是1
+  - trasnform值不是none
+  - filter值不为none
+  - will-change指定的属性值为上面任意一个
 
 层叠等级：层叠上下文在z轴上的排序
 

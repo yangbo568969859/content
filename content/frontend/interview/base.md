@@ -2,6 +2,50 @@
 
 ## 防抖和节流
 
+- 防抖：在事件触发n秒后执行函数，如果在n秒内再次触发事件，则重新计时
+- 节流：如果在定时器的时间范围内再次触发，不予执行，等到当前定时器完成，才能开启下一个定时器任务
+
+```js
+// throttle
+function thorttle(fn, delay) {
+  let flag = true;
+
+  return function (...args) {
+    let context = this;
+    if (!flag) return;
+    flag = false;
+    setTimeout(() => {
+      fn.apply(context, args);
+      flag = true;
+    }, delay);
+  }
+}
+function thorttle1(fn, delay) {
+  let last = 0;
+
+  return function (...args) {
+    let context = this;
+    let now = new Date().getTime();
+    if (now - last > delay) {
+      return;
+    }
+    last = now;
+    fn.apply(context, args);
+  }
+}
+// debounce
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    let context = this;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(context, args);
+    }, delay)
+  }
+}
+```
+
 ## 重绘、重排、合成
 
 重绘：样式计算-绘制

@@ -127,6 +127,90 @@ function controlAlow(foo: Foo): void {
 }
 ```
 
+### 类型复用
+
+type定义的类型可以通过交叉类型(&)来进行复用，而interface定义的类型则可以通过继承(extends)来实现复用；type和interface定义的类型也可以相互复用
+
+```typescript
+// 复用type定义的类型
+type Point = {
+  x: number;
+  y: number;
+}
+type Coordinate = Point & {
+  z: number;
+}
+// 复用interface定义的类型
+interface Point {
+  x: number;
+  y: number;
+}
+interface Coordinate extends Point {
+  z: number;
+}
+// type复用interface定义的类型
+interface Point {
+  x: number;
+  y: number;
+}
+type Coordinate = Point & {
+  z: number;
+}
+// interface复用type定义的类型
+type Point = {
+  x: number;
+  y: number;
+}
+interface Coordinate extends Point {
+  z: number;
+}
+```
+
+### 类型忽略
+
+例如：有一个已知的类型Props需要复用，但是不需要其中的某一个属性a，这种情况，我们可以使用Omit来高效的实现复用
+
+```typescript
+// Omit 忽略某个类型
+interface Props {
+  a: string;
+  b: number;
+  c: boolean;
+}
+type OmitProps = Omit<Props, 'a'> & {
+  e: string
+};
+interface OmitProps1 extends Omit<Props, 'a'> {
+  e: string
+};
+```
+
+类似的，工具类型Pick也可以用于实现此类复用
+
+```typescript
+// Pick 包含某个类型
+interface Props {
+  a: string;
+  b: number;
+  c: boolean;
+}
+interface Props1 extends Pick<Props, 'a' | 'b'> {
+  d: string;
+}
+```
+
+### type还是interface
+
+- interface 只能定义对象类型，而type只能定义函数类型
+- interface 可以被合并(merge),如果多个同名接口存在，他们会自动合并为一个接口，而type不行
+- interface 支持扩展(extends),可以扩展其它接口；而type不支持扩展
+
+使用场景
+
+- 如果需要定义一个对象的类型，应该使用interface
+- 如果需要定义一个联合类型、交叉类型等，或者需要定义一个类型别名，应该使用type
+- 如果需要对一个已有的类型进行扩展，或者需要合并多个同名接口，应该使用interface
+
 ## 断言
 
 某个变量非常确定类型，通过断言这种方式告诉编译器，这个变量是某个类型；类型断言好比是类型转换

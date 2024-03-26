@@ -264,6 +264,9 @@ vue2 filters源码分析
 _s(_f('filterformat')(message))
 // _f全名是 resolveFilter，作用是从this.$options.filters中找到过滤器并返回
 // _s全称是 toString 过滤器处理后的结果会当作参数传递给 toString函数，最终 toString函数执行后的结果会保存到Vnode中的text属性中，渲染到视图中
+function resolveFilter(id) {
+    return resolveAsset(this.$options, 'filters', id, true)
+}
 function resolveAsset (options, type, id, warnMissing) {
     if (typeof id !== 'string') {
         return

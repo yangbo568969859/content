@@ -15,24 +15,24 @@ module.exports = {
   ],
 
   // scope 类型（定义之后，可通过上下键选择）
-  scopes: [
-    ['docs', '文档相关'],
-    ['components', '组件相关'],
-    ['hooks', 'hook 相关'],
-    ['utils', 'utils 相关'],
-    ['element-ui', '对 element-ui 的调整'],
-    ['styles', '样式相关'],
-    ['deps', '项目依赖'],
-    ['auth', '对 auth 修改'],
-    ['other', '其他修改'],
-    // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
-    ['custom', '以上都不是？我要自定义']
-  ].map(([value, description]) => {
-    return {
-      value,
-      name: `${value.padEnd(30)} (${description})`
-    }
-  }),
+  // scopes: [
+  //   ['docs', '文档相关'],
+  //   ['components', '组件相关'],
+  //   ['hooks', 'hook 相关'],
+  //   ['utils', 'utils 相关'],
+  //   ['element-ui', '对 element-ui 的调整'],
+  //   ['styles', '样式相关'],
+  //   ['deps', '项目依赖'],
+  //   ['auth', '对 auth 修改'],
+  //   ['other', '其他修改'],
+  //   // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
+  //   ['custom', '以上都不是？我要自定义']
+  // ].map(([value, description]) => {
+  //   return {
+  //     value,
+  //     name: `${value.padEnd(30)} (${description})`
+  //   }
+  // }),
 
   // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
   // allowCustomScopes: true,

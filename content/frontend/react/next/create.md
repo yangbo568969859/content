@@ -188,7 +188,15 @@ npm install --save-dev lint-staged
 }
 ```
 
-这样，每次在执行git commit命令时，都会自动执行npm中定义的lint和test命令
+这样，每次在执行git commit命令时，都会自动执行 npx lint-staged(package.json中配置的lint-staged)
+
+增加 commitlint.config.js 安装对应的依赖包
+
+```shell
+npm i @commitlint/config-conventional @commitlint/cli --save-dev
+```
+
+然后使用 Husky 启用 commitlint
 
 - commitizen 就像是生产线上的模板，它定义了产品的外观和结构，提供了一种易于理解和使用的模板来生成规范化的提交信息。
 - cz-customizable 就像是生产线上的调整机器，你可以给产品换个颜色，换个包装等等。它可以根据不同的需求对模板进行定制，适应不同的项目需求。

@@ -13,7 +13,7 @@ next.js 是一个基于React的轻量化服务端渲染框架，它提供了一�
 
 ## 项目创建
 
-Next.js 14 对Node.js版本要求 18.17 以上
+Next.js 14 对 Node.js 版本要求 18.17 以上
 
 ```shell
 # 自动安装

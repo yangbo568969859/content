@@ -8,12 +8,15 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
     "fs": "0.0.1-security",
     "fs-extra": "^10.0.1",
+    "lint-staged": "^15.2.2",
     "nuxt": "^2.14.3"
   },
   "devDependencies": {
@@ -22,7 +25,16 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.12",
+    "eslint": "^8.57.0",
+    "eslint-define-config": "^2.1.0",
+    "husky": "^9.0.11",
     "less": "^4.1.1",
     "less-loader": "5.0.0"
+  },
+  "lint-staged": {
+    "content/*.{js,jsx,mjs,ts,tsx}": [
+      "node_modules/.bin/prettier --write",
+      "eslint --config .eslintrc.js"
+    ]
   }
 }

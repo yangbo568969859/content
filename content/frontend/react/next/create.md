@@ -109,6 +109,233 @@ npm run prettier
 
 看下自己配置的格式化有没有生效
 
+## CommitLint
+
+Git提交信息需要遵循Angular约定是为了使提交信息格式清晰、易于阅读和理解，从而提高代码协作的效率
+
+安装 husky
+
+```shell
+pnpm install husky --save-dev
+```
+
+package.json中新增husky配置
+
+```json
+{
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  }
+}
+```
+
+执行husky install
+
+```shell
+npm run prepare
+# 或者
+npx husky install
+```
+
+创建一个 hook
+
+```shell
+# 脚本创建 9.0版本add废弃了
+npx husky add .husky/pre-commit "npm run lint"
+# 脚本创建2
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+```
+
+手动创建 .husky 目录下创建 pre-commit 和 commit-msg
+
+```bash
+# pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+echo "husky commit-msg" && npx --no-install commitlint --edit $1
+
+# commit-msg
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+echo "husky pre-commit" && npx lint-staged
+```
+
+安装lint-staged
+
+```shell
+npm install --save-dev lint-staged
+```
+
+在package.json中配置lint-staged 配置表明在运行lint-staged的时候将只匹配src和test目录下的ts和tsx文件
+
+```json
+{
+  "lint-staged": {
+    "src/*.{js,jsx,mjs,ts,tsx}": [
+      "node_modules/.bin/prettier --write",
+      "eslint --config .eslintrc.js"
+    ],
+    "src/*.{css,scss,less,json,html,md,markdown}": [
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ]
+  }
+}
+```
+
+这样，每次在执行git commit命令时，都会自动执行npm中定义的lint和test命令
+
+- commitizen 就像是生产线上的模板，它定义了产品的外观和结构，提供了一种易于理解和使用的模板来生成规范化的提交信息。
+- cz-customizable 就像是生产线上的调整机器，你可以给产品换个颜色，换个包装等等。它可以根据不同的需求对模板进行定制，适应不同的项目需求。
+- commitlint 就像是生产线上的检测设备，这意味着不管你如何去 DIY 这个产品，他总要有一个审核标准来说明他是一个合格产品。而commitlint 支持多种规范配置文件，其中就包括 commitlint-config-cz，它继承了 commitlint-config-conventional 的基础规范，并增加了对 commitizen 规范的支持
+
+全局安装commitizen
+
+```shell
+pnpm install -g commitizen 
+pnpm install -g cz-conventional-changelog
+```
+
+随后你就可以使用以下命令获得中规中距的commit信息了。
+
+```shell
+git cz
+```
+
+安装 cz-customizable
+
+```shell
+pnpm install cz-customizable --save-dev
+```
+
+添加以下配置到package.json中
+
+```json
+{
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}
+```
+
+项目根目录下创建.cz-config.js文件来自定义提示
+
+```js
+module.exports = {
+  // 可选类型
+  types: [
+    {
+      value: ':sparkles: feat',
+      name: '✨ feat:      新功能'
+    },
+    {
+      value: ':bug: fix',
+      name: '🐛 fix:      修复'
+    },
+    {
+      value: ':memo: docs',
+      name: '📝 docs:      文档变更'
+    },
+    {
+      value: ':lipstick: style',
+​
+      name: '💄 style:     代码格式(不影响代码运行的变动)'
+    },
+    {
+      value: ':recycle: refactor',
+​
+      name: '♻️  refactor:    重构 (既不增加feature, 也不是修复bug)'
+    },
+    {
+      value: ':zap: perf',
+      name: '⚡️ perf:      性能优化'
+    },
+    {
+      value: ':white_check_mark: test',
+      name: '✅ test:      增加测试'
+    },
+    {
+      value: ':wrench: chore',
+      name: '🔧 chore:     构建过程或辅助工具的变动'
+    },
+    {
+      value: ':rewind: revert',
+      name: '⏪ revert:     回退'
+    },
+    {
+      value: ':rocket: build',
+      name: '🚀 build:     打包'
+    }
+  ],
+​
+  // 步骤
+​
+  messages: {
+    type: '请选择提交的类型：',
+    customScope: '情输入修改的范围(可选)',
+    subject: '请简要描述提交(必填)',
+    body: '请输入详细描述(可选)',
+    footer: '请输入要关闭的issus(可选)',
+    confirmCommit: '确认要使用以上信息提交？(y/n)'
+  },
+  // 默认长度72
+  subjectLimit: 72
+};
+```
+
+此时再次运行 git cz时就可以看到
+
+```shell
+? 请选择提交的类型： (Use arrow keys)
+❯ ✨ feat:      新功能 
+  🐛 fix:      修复 
+  📝 docs:      文档变更 
+  💄 style:     代码格式(不影响代码运行的变动) 
+  ♻️  refactor:    重构 (既不增加feature, 也不是修复bug) 
+  ⚡️ perf:      性能优化 
+  ✅ test:      增加测试
+```
+
+对自动生成 commit 信息的校验
+
+```shell
+npm i @commitlint/config-conventional @commitlint/cli --save-dev
+```
+
+更目录创建commitlint.config.js文件，配置commitlint
+
+```js
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'build',
+        'feat',
+        'fix',
+        'docs',
+        'style',
+        'refactor',
+        'test',
+        'chore',
+        'revert',
+      ],
+    ],
+    'subject-full-stop': [0, 'never'],
+    'subject-case': [0, 'never'],
+  },
+}
+```
+
 ## vscode配置
 
 根目录下新增 .vscode 文件夹，创建settings.json文件，该文件是一个覆盖已安装vscode的默认设置值，该文件配置仅对当前项目生效

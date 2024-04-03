@@ -5,11 +5,11 @@
 - 配置相关
   - Loader
   - Plugin
-  - Webpack性能优化
+  - Webpack 性能优化
 - 原理相关
-  - Webpack核心库Tapable
-  - Webpack调试和构建
-  - Webpack热更新(HMR)原理
+  - Webpack 核心库 Tapable
+  - Webpack 调试和构建
+  - Webpack 热更新(HMR)原理
   - tree-shaking
   - Bable
 - 其它
@@ -20,30 +20,30 @@
 
 初始化阶段
 
-- 初始化参数：从配置文件、配置对象、Shell中读取参数，与默认配置参数合并得到最终参数
-- 创建编译器对象：用上一步得到的参数创建Cpmpiler对象
-- 初始化编译环境：包括注入内置插件、注册各种工厂模块、初始化RuleSet集合、加载配置的插件
-- 开始编译：执行Complier的run方法
-- 确定入口：根据配置中的entry找出所有文件的入口，调用compilition.addEntry将入口文件转换为dependence对象
+- 初始化参数：从配置文件、配置对象、Shell 中读取参数，与默认配置参数合并得到最终参数
+- 创建编译器对象：用上一步得到的参数创建 Cpmpiler 对象
+- 初始化编译环境：包括注入内置插件、注册各种工厂模块、初始化 RuleSet 集合、加载配置的插件
+- 开始编译：执行 Complier 的 run 方法
+- 确定入口：根据配置中的 entry 找出所有文件的入口，调用 compilition.addEntry 将入口文件转换为 dependence 对象
 
 构建阶段
 
-- 编译模块(make)：根据entry对应的dependence创建module对象，调用loader将模块转译为标准js内容，调用js解释器将内容转换为AST对象，从中找出该模块的依赖模块，再递归本步骤直到所有入口依赖的文件都经过本步骤的处理
+- 编译模块(make)：根据 entry 对应的 dependence 创建 module 对象，调用 loader 将模块转译为标准 js 内容，调用 js 解释器将内容转换为 AST 对象，从中找出该模块的依赖模块，再递归本步骤直到所有入口依赖的文件都经过本步骤的处理
 - 完成模块编译：上一步递归处理所能触达到的模块后，得到了每个模块被翻译后的内容以及他们之间的依赖关系图
 
 生成阶段
 
-- 输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的chunk，再把每个chunk转换成一个单独的文件加入到输出列表，这一步是可以修改输出文件内容的最后一步
+- 输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 chunk，再把每个 chunk 转换成一个单独的文件加入到输出列表，这一步是可以修改输出文件内容的最后一步
 - 写入文件系统：在确定好输出内容后，根据配置确定输出路径和文件名，把文件内容写入到文件系统中
 
-## 初始化一个基本配置的webpack需要的package及分类
+## 初始化一个基本配置的 webpack 需要的 package 及分类
 
 ### webpack
 
 - webpack 模块捆绑器。它的主要目的是捆绑 JavaScript 文件以在浏览器中使用，但它也能够转换、捆绑或打包几乎任何资源或资产
 - webpack-cli 命令行界面
-- webpack-dev-server 将webpack与提供实时重新加载的开发服务器结合使用。这应该仅用于开发(底层使用的webpack-dev-middleware)
-- webpack-merge 合并多个webpack配置对象，提供了一个函数，可以将两个或多个配置对象合并成一个
+- webpack-dev-server 将 webpack 与提供实时重新加载的开发服务器结合使用。这应该仅用于开发(底层使用的 webpack-dev-middleware)
+- webpack-merge 合并多个 webpack 配置对象，提供了一个函数，可以将两个或多个配置对象合并成一个
 - cross-env 跨平台运行设置和使用环境变量的脚本
 
 ### babel
@@ -61,17 +61,17 @@ class MyClass {
 }
 ```
 
-- @babel/preset-env Babel预设，它可以根据你的目标环境自动确定你需要的 Babel 插件和 polyfills
-- @babel/plugin-proposal-decorators Babel插件，用于转换装饰器语法。装饰器是一种语法，允许你注解和修改类和属性
+- @babel/preset-env Babel 预设，它可以根据你的目标环境自动确定你需要的 Babel 插件和 polyfills
+- @babel/plugin-proposal-decorators Babel 插件，用于转换装饰器语法。装饰器是一种语法，允许你注解和修改类和属性
 
 ```js
 function mixin(behaviour) {
   return function(target) {
-    Object.assign(target.prototype, behaviour)
-  }
+    Object.assign(target.prototype, behaviour);
+  };
 }
 // 使用装饰器应用mixin
-@mixin({ foo: 'bar' })
+@mixin({ foo: "bar" })
 class MyClass {}
 
 let obj = new MyClass();
@@ -80,13 +80,13 @@ console.log(obj.foo); // 输出 bar
 
 ### Loaders
 
-- babel-loader webpack的加载器，使用babel和webpack转换 JavaScript 文件
-- sass-loader 加载SCSS并编译为CSS
+- babel-loader webpack 的加载器，使用 babel 和 webpack 转换 JavaScript 文件
+- sass-loader 加载 SCSS 并编译为 CSS
 - postcss-loader 使用 PostCSS 处理 CSS(自动添加 CSS3 部分属性的浏览器前缀)
 - css-loader 解决 CSS 导入问题
 - style-loader 将 CSS 注入 DOM(就是将处理好的 css 通过 style 标签的形式添加到页面上)
 - 其它
-  - webpack5 之后就不需要使用url-loader、file-loader去处理图片和字体等，使用内置的asset/resource类型
+  - webpack5 之后就不需要使用 url-loader、file-loader 去处理图片和字体等，使用内置的 asset/resource 类型
     - asset/resource 类型的模块会生成一个单独的文件，并导出此文件的 URL。这与 file-loader 的行为类似
     - asset/inline 将资源作为 data URI 内联到 bundle 中，这与 url-loader 的行为类似
     - asset 在文件大小小于指定限制时，将资源作为 data URI 内联，否则作为单独的文件处理。这是 url-loader 和 file-loader 的混合行为
@@ -99,9 +99,9 @@ module.exports = {
     rules: [
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: '[name][hash:8][ext]'
+          filename: "[name][hash:8][ext]"
         },
         parser: {
           dataUrlCondition: {
@@ -111,19 +111,19 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
+        type: "asset/inline",
         generator: {
-          filename: '[name][hash:8][ext]'
+          filename: "[name][hash:8][ext]"
         },
         parser: {
           dataUrlCondition: {
             maxSize: 50 * 1024 // 50kb
           }
         }
-      },
+      }
     ]
   }
-}
+};
 ```
 
 ### Plugins
@@ -146,13 +146,103 @@ module.exports = {
 
 例如 filename: "[name][hash:8][ext]"
 
-- hash：任何一个文件改动，整个项目的构建hash值都会改变
-- chunkhash：文件的改动只会影响其所在chunk的hash值
-- contenthash：每个文件都有单独的hash，文件的改动只会影响自身的hash值
+- hash：任何一个文件改动，整个项目的构建 hash 值都会改变
+- chunkhash：文件的改动只会影响其所在 chunk 的 hash 值
+- contenthash：每个文件都有单独的 hash，文件的改动只会影响自身的 hash 值
 
 ## Loader
 
+loader 本质上就是一个函数，这个函数会在我们在我们加载一些文件时执行；在 webpack 的定义中，loader 导出一个函数，loader 会在转换源模块(resource)的时候调用该函数。
+这个函数中，我们可以通过传入 this 上下文给 Loader API 来使用他们
+
+设计原则
+
+- 单一职责 一个 Loader 只做一件事情，维护简单，还能让 loader 以不同的组合方式串联使用
+- 链式组合
+- 模块化 保证 loader 是模块化的。loader 生成模块需要遵循和普通模块一样的设计原则
+- 无状态 在多次模块的转化之间，我们不应该在 loader 中保留状态
+
+```js
+module.exports = function(source) {
+  console.log("source>>>>", source);
+  return source;
+};
+```
+
 ## Plugin
+
+plugin 通常是在 webpack 打包的某个时间节点做一些操作，一般使用 new Plugin() 的形式使用
+
+```js
+class DemoPlugin {
+  constructor() {
+    console.log("plugin init");
+  }
+  apply(compiler) {
+    // 一个新的编译(compilation)创建之后（同步）
+    // compilation代表每一次执行打包，独立的编译
+    compiler.hooks.compile.tap("DemoWebpackPlugin", compilation => {
+      console.log(compilation);
+    });
+    // 生成资源到 output 目录之前（异步）
+    compiler.hooks.emit.tapAsync("DemoWebpackPlugin", (compilation, fn) => {
+      console.log(compilation);
+      compilation.assets["index.md"] = {
+        // 文件内容
+        source: function() {
+          return "this is a demo for plugin";
+        },
+        // 文件尺寸
+        size: function() {
+          return 25;
+        }
+      };
+      fn();
+    });
+    // 第二种写法(promise)
+    compiler.hooks.emit.tapPromise("DemoWebpackPlugin", compilation => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      }).then(() => {
+        console.log(compilation.assets);
+        compilation.assets["index.md"] = {
+          // 文件内容
+          source: function() {
+            return "this is a demo for plugin";
+          },
+          // 文件尺寸
+          size: function() {
+            return 25;
+          }
+        };
+      });
+    });
+
+    // 第三种写法(async await)
+    compiler.hooks.emit.tapPromise("DemoWebpackPlugin", async compilation => {
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      });
+      console.log(compilation.assets);
+      compilation.assets["index.md"] = {
+        // 文件内容
+        source: function() {
+          return "this is a demo for plugin";
+        },
+        // 文件尺寸
+        size: function() {
+          return 25;
+        }
+      };
+    });
+  }
+}
+module.exports = DemoPlugin();
+```
 
 ## SourceMap
 
@@ -161,7 +251,7 @@ SourceMap 是一种映射关系，当项目运行后，如果出现错误，我�
 ```js
 module.exports = {
   //...
-  devtool: 'source-map', // 使用完整的 SourceMap
+  devtool: "source-map" // 使用完整的 SourceMap
 };
 ```
 
@@ -201,28 +291,83 @@ module.exports = {
 - 本地开发： eval-cheap-module-source-map
 - 生产环境：none
 
-## Webpack性能优化
+## Webpack 性能优化
 
 - 优化 resolve 配置
   - alias 创建 import 或 require 的别名，可以让你更方便地引入模块
   - extensions 自动解析确定的扩展名，使你在引入模块时可以不带扩展名(高频文件后缀名放前面；手动配置后，默认配置会被覆盖; 如果想保留默认配置，可以用 ... 扩展运算符代表默认配置)
   - modules 告诉 webpack 解析模块时应该搜索的目录
-  - resolveLoader
-- externals
+  - resolveLoader 决定了 webpack 如何去查找 loader（加载器）。resolveLoader 的配置和 resolve 配置非常相似，但 resolveLoader 是专门用来配置 loader 解析的
+  - symlinks 如果项目不使用 symlinks（例如 npm link 或者 yarn link），可以设置 resolve.symlinks: false，减少解析工作量
+- externals 从输出的 bundle 中排除依赖
+- 缩小范围（loader）
+  - include 符合条件的模块进行解析
+  - exclude 排除符合条件的模块，不解析
 - npParse
-- IgnorePlugin
+  - noParse 选项可以让 webpack 忽略对部分没有采用模块化的文件的递归解析和处理，这样做可以使得构建速度更快
+  - 不需要解析依赖的第三方大型类库
+  - 使用 noParse 进行忽略的模块文件中不会解析 import、require 等语法
+- IgnorePlugin 可以排除某些特定的模块，使 Webpack 不把这些指定的模块打包进来
 - 多进程配置
+- optimization 配置
+  - splitChunks 可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到新生成的 chunk
+  - runtimeChunk Webpack 会为每个入口添加一个只包含 runtime 的额外 chunk。这可以优化长期缓存
+- 缓存
+- 减小打包体积
+  - webpack5 自带 terser-webpack-plugin， 默认开启了 parallel: true 配置
 
 ```js
 module.exports = {
+  // noParse
+  module: {
+    noParse: /jquery|lodash/,
+    rules: []
+  },
+  // resolve
   resolve: {
-    modules: [paths.src, 'node_modules'], // webpack 优先 src 目录下查找需要解析的文件，会大大节省查找时间
-    extensions: ['.js', '.jsx', '.json'],
+    modules: [paths.src, "node_modules"], // webpack 优先 src 目录下查找需要解析的文件，会大大节省查找时间
+    extensions: [".js", ".jsx", ".json"],
     // extensions: ['.ts', '...'],
     alias: {
-      '@': paths.src,
-      assets: paths.public,
+      "@": paths.src,
+      assets: paths.public
     },
+    resolveLoader: {
+      modules: ["node_modules", resolve("loader")], // 搜索目录
+      alias: {
+        "my-loader": path.resolve(__dirname, "loaders/my-loader.js") // 创建别名
+      },
+      extensions: [".js", ".json"] // 自动解析扩展名
+    }
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin({
+        parallel: 4,
+      }),
+      new TerserPlugin({
+        parallel: 4,
+        terserOptions: {
+          parse: {
+            ecma: 8,
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            comparisons: false,
+            inline: 2,
+          },
+          mangle: {
+            safari10: true,
+          },
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true,
+          },
+        }
+      })
+    ]
   }
-}
+};
 ```

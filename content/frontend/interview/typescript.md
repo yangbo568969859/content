@@ -329,6 +329,110 @@ type ColorFulCircle = ColorFul & Circle;
 
 ## 泛型
 
+像 C# 和 Java 这样的语言中，可以使用泛型来创建可重用的组件，一个组件可以支持多种类型的数据
+
+泛型接口
+
+```typescript
+interface GenericIdentityFn<T> {
+  (arg: T): T;
+}
+const fn: GenericIdentityFn<string> = (arg: string) => {
+  return arg;
+};
+```
+
+泛型类
+
+```typescript
+// tsconfig.json strictPropertyInitialization 配置需要调整
+class GenericClass<T> {
+  zeroValue: T;
+  add: (a: T, b: T) => T;
+}
+
+let myGenericClass = new GenericClass<number>();
+myGenericClass.zeroValue = 1;
+myGenericClass.add = function(x, y) {
+  return x + y;
+};
+```
+
+泛型变量 常见泛型变量代表的意思
+
+- T（Type）：表示一个 TypeScript 类型
+- K（Key）：表示对象中的键类型
+- V（Value）：表示对象中的值类型
+- E（Element）：表示元素类型
+
+泛型工具类型
+
+```typescript
+// typeof
+interface Person {
+  name: string;
+  age: number;
+}
+const sem: Person = {
+  name: 'yyy',
+  age: 30
+}
+type Sem = typeof sem; // Person
+function toArray(x: number): Array<number> {
+  return [x]
+}
+type Func = typeof toArray; // (x: number) => number[]
+// keyof
+type k1 = keyof Person; // "name" | "age";
+type k2 = keyof Person[]; // "length" | "toString" | "pop" | "push" | "concat" | "join" 
+type k3 = keyof { [x: string]: Persion }; // "string" | "number"
+// in
+type Keys = "a" | "b" | "c"
+type KeysEn = {
+  [p in Keys]: string;
+} // { a: string, b: string, c: string }
+// infer
+// 在条件类型语句中，可以用 infer 声明一个类型变量并且对它进行使用
+type ReturnType<T> = T extends (
+  ...args: any[]
+) => infer R ? R : any;
+// 以上代码中 infer R 就是声明一个变量来承载传入函数签名的返回值类型，简单说就是用它取到函数返回值的类型方便之后使用
+// extends
+// 有时候我们定义的泛型不想过于灵活或者说想继承某些类等，可以通过 extends 关键字添加泛型约束
+interface ILengthwise {
+  length: number;
+}
+
+function loggingIdentity<T extends ILengthwise>(arg: T): T {
+  console.log(arg.length);
+  return arg;
+}
+loggingIdentity({length: 10, value: 3});
+// Partial
+// Partial<T> 的作用就是将某个类型里的属性全部变为可选项 ?
+type Partial<T> = {
+  [P in keyof T]?: T[P];
+};
+// 示例
+interface Todo {
+  title: string;
+  description: string;
+}
+
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  return { ...todo, ...fieldsToUpdate };
+}
+
+const todo1 = {
+  title: "organize desk",
+  description: "clear clutter",
+};
+
+const todo2 = updateTodo(todo1, {
+  description: "throw out trash",
+});
+```
+
 ## Keyof
 
 TypeScript允许我们遍历某种类型的属性，并通过keyof操作符提取其属性的名称
@@ -418,6 +522,91 @@ const tempa : userResult = {
 ## 模板字面量类型
 
 ## 类
+
+### 类的属性和方法 访问器
+
+```typescript
+class Greeter {
+  // 静态属性
+  static cname: string = "Greeter";
+  // 成员属性
+  greeting: string;
+  // 构造函数 - 执行初始化操作
+  constructor(message: string) {
+    this.greeting = message;
+  }
+  // 静态方法
+  static getClassName() {
+    return "Class name is Greeter";
+  }
+  // 成员方法
+  greet() {
+    return "Hello, " + this.greeting;
+  }
+  // 通过 getter 和 setter 方法来实现数据的封装和有效性校验，防止出现异常数据
+  private _name: string;
+  get fullName(): string {
+    return this._name;
+  }
+  set fullName(newName: string) {
+    this._name = newName;
+  }
+}
+let greeter = new Greeter("world");
+```
+
+### 类的继承
+
+```typescript
+class CarConstructor {
+  name: string;
+
+  constructor(theName: string) {
+    this.name = theName;
+  }
+
+  move(distanceInMeters: number = 0) {
+    console.log(`${this.name} moved ${distanceInMeters}m.`);
+  }
+}
+
+class Car extends CarConstructor {
+  constructor(name: string) {
+    super(name);
+  }
+  move(distanceInMeters = 5) {
+    console.log("Slithering...");
+    super.move(distanceInMeters);
+  }
+}
+let car = new Car("BMW");
+car.move(10);
+```
+
+### ECMAScript 私有字段
+
+```typescript
+class Person {
+  #name: string;
+
+  constructor(name: string) {
+    this.#name = name;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.#name}!`);
+  }
+}
+
+let semlinker = new Person("Semlinker");
+
+semlinker.#name;
+```
+
+- 私有字段以 # 字符开头，有时我们称之为私有名称；
+- 每个私有字段名称都唯一地限定于其包含的类；
+- 不能在私有字段上使用 TypeScript 可访问性修饰符（如 public 或 private）；
+- 私有字段不能在包含的类之外访问，甚至不能被检测到。
 
 ## 模块
 

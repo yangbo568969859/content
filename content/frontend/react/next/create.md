@@ -109,11 +109,11 @@ npm run prettier
 
 看下自己配置的格式化有没有生效
 
-## CommitLint
+## Git Hooks和CommitLint
 
 Git提交信息需要遵循Angular约定是为了使提交信息格式清晰、易于阅读和理解，从而提高代码协作的效率
 
-安装 husky
+### 安装 husky
 
 ```shell
 pnpm install husky --save-dev
@@ -137,10 +137,13 @@ package.json中新增husky配置
 执行husky install
 
 ```shell
+# prepare在npm install的时候会自动自行
 npm run prepare
 # 或者
 npx husky install
 ```
+
+执行完这个命令后，工程目录中会生成.husky 目录，存储 hooks
 
 创建一个 hook
 
@@ -157,15 +160,17 @@ echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 # pre-commit
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-echo "husky commit-msg" && npx --no-install commitlint --edit $1
+echo "husky pre-commit" && npx lint-staged
 
 # commit-msg
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-echo "husky pre-commit" && npx lint-staged
+echo "husky commit-msg" && npx --no-install commitlint --edit $1
 ```
 
-安装lint-staged
+配置完成后 git commit 的时候就会对相关文件执行 lint-staged 和 message 校验的工作了
+
+### 安装lint-staged
 
 ```shell
 npm install --save-dev lint-staged
@@ -190,7 +195,7 @@ npm install --save-dev lint-staged
 
 这样，每次在执行git commit命令时，都会自动执行 npx lint-staged(package.json中配置的lint-staged)
 
-增加 commitlint.config.js 安装对应的依赖包
+### 安装commitlint
 
 ```shell
 npm i @commitlint/config-conventional @commitlint/cli --save-dev

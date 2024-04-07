@@ -137,3 +137,63 @@
     - forwards 停止时，保留最后一帧
     - backwards 停止时，回到第一帧
     - both 同时运用 forwards / backwards
+
+## 自适应布局
+
+### rem
+
+rem是相对根元素font-size的单位。为了简化编写rem单位，可以使用postcss插件进行转化
+
+安装postcss插件
+
+```shell
+npm install postcss postcss-pxtorem autoprefixer -D
+```
+
+创建postcss.config.js文件
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+    'postcss-pxtorem': {
+      rootValue: 16, // 表示1rem等于多少px，这里设置为16px
+      propList: ['*', '!font-size'] // propList，表示需要转化哪些属性。这里设置为*，表示所有属性都需要转化， 同时!font-size表示不转化font-size属性
+    }
+  }
+};
+```
+
+设置根元素fon-size
+
+假设设计稿的宽度是1242px，那么根元素font-size的值为：屏幕宽度 * 16 / 1242
+
+- 通过css设置根元素字体大小(推荐):
+
+```css
+/* 1242下，1rem = 16px */
+html {
+    font-size: calc(100vw * 16 / 1242);
+}
+```
+
+- 通过js设置
+
+```js
+function setFontSize() {
+  // 获取屏幕宽度
+  var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  // 根据屏幕宽度和设计稿的尺寸比例计算字体大小
+  var fontSize = screenWidth / 10; // 假设设计稿宽度为10rem
+
+  // 设置HTML元素的字体大小
+  document.documentElement.style.fontSize = fontSize + 'px';
+}
+
+setFontSize();
+window.addEventListener('resize', setFontSize);
+```
+
+### vw

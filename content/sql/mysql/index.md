@@ -56,6 +56,22 @@ mysqld --initialize --console 服务名
 
 执行成功后，会显示 root 的初始密码，如下图，这个密码需要保存下来
 
+![mysql-init](./images/mysql-init.jpg)
+
+安装服务
+
+```shell
+mysqld --install
+```
+
+如果提示 Install/Remove of the Service Denied 请打开cmd的时候选择“用管理员身份打开”
+
+启动服务
+
+```shell
+net start mysql
+```
+
 ## 登录数据库
 
 mysql -u root -p

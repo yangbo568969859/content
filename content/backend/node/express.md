@@ -306,3 +306,18 @@ module.exports = {
 ```
 
 ### 其他
+
+#### 常用中间件
+
+- body-parser 用于处理 post 请求提交的数据，把数据保存在 req.body 中，以一个对象的形式提供给服务器，方便进行后续的处理
+- dotenv 用于按需加载不同的环境变量文件
+- chalk 用于改变console输出的样式
+- mount-routes 可以自动挂载 routes 目录的所有路由，以文件名称作为路由的根，也可以指定具体的路径
+- cors 解决跨域问题
+- express-jwt + jsonwebtoken  生成 JWT 字符串 + 将 JWT 字符串解析还原成 JSON 对象
+- log4js Node 日志管理工具，可以将自定义格式的日志输出到各种渠道
+- nodemailer 简单易用的 Node.JS 邮件发送模块
+- multer 用于处理 multipart/form-data 类型的表单数据，它主要用于上传文件
+- express-swagger-generator 自动生成 api 文档
+- crypto-js 纯 JavaScript 的加密算法类库，可以非常方便的在前端进行其所支持的加解密操作（支持的算法：MD5,SHA-1,SHA-256,AES,HMAC）
+- express-session 针对 express 框架提供的一套 session 扩展，session 是另一种记录客户状态的机制，不同的是 Cookie 保存在客户端浏览器中，而 session 保存在服务器上

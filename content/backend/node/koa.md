@@ -44,9 +44,129 @@ router.get("/", async (ctx, next) => {
 app.listen(3001, () => console.log("Example app listening on port 3001!"));
 ```
 
-## 中间件
+## 一个基本的Koa配置
 
-Koa 的中间件则基于 Promise 的
+### 目录结构
+
+```yaml
+├─
+├─ common         共用方法、常量目录
+├─ config         数据库基本配置目录
+├─ logs           日志目录
+├─ middleware     中间件
+├─ models         Schema和Model
+├─ public         静态文件目录
+├─ routes         url 路由配置
+├─ utils          工具方法
+├─ views          ejs页面模板
+├─ app.js         koa 入口
+├─ package.json   项目依赖包配置
+├─ README.md      项目说明
+```
+
+### 热更新配置
+
+每次修改 js 文件，我们都需要重启服务器，这样修改的内容才会生效，但是每次重启比较麻烦，影响开发效果
+
+在开发环境中引入 nodemon 插件，实现实时热更新，自动重启项目
+
+```shell
+npm install nodemon -S
+```
+
+package.json中新增dev环境脚本
+
+```json
+{
+  "scripts": {
+    "dev": "nodemon app.js"
+  }
+}
+```
+
+### 跨域配置
+
+安装 koa2-cors
+
+```js
+const cors = require('koa2-cors')
+app.use(cors())
+```
+
+### 数据库
+
+mongoDB 数据库
+
+### 日志配置
+
+#### morgan 记录请求日志
+
+morgan 是 express 默认的日志中间件，也可以脱离 express，作为 node.js 的日志组件单独使用
+
+```js
+const Koa = require('koa')
+const morgan = require('morgan')
+const fs = require('fs')
+const app = new Koa()
+
+// 使用'morgan'中间件，并设置日志格式为'dev'
+app.use(morgan('dev'))
+// 输出日志到目录
+const accessLogStream = fs.createWriteStream(path.join(__dirname, '/log/request.log'), { flags: 'a', encoding: 'utf8' }); 
+app.use(morgan('combined', { stream: accessLogStream }));
+```
+
+#### winston 记录错误日志
+
+由于 morgan 只能记录 http 请求的日志，所以我们还需要 winston 来记录其它想记录的日志，例如：访问数据库出错等
+
+```js
+const { format, createLogger, transports } = require('winston')
+const { combine, timestamp, printf } = format
+const DailyRotateFile = require('winston-daily-rotate-file') // 日志清除插件
+const path = require('path')
+
+const logFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} ${level}: ${message}`
+})
+
+const logger = createLogger({
+  level: 'error',
+  format: combine(
+    timestamp(),
+    logFormat,
+  ),
+  transports: [
+    new (transports.Console)(),
+    new (transports.File)({
+      filename: path.join(__dirname, '../logs/error.log'),
+      level: 'error',
+    }),
+    new (transports.File)({
+      filename: path.join(__dirname, '../logs/info.log'),
+      level: 'info',
+    }),
+    new DailyRotateFile({
+      filename: path.join('logs', 'app-%DATE%.log'),
+      datePattern: 'YYYY-MM-DD',
+      maxSize: '300m',
+      maxFiles: '10d',
+      utc: true
+    })
+  ]
+})
+
+module.exports = logger
+
+```
+
+### 请求路由处理
+
+### 错误处理
+
+### 静态文件配置
+
+### pm2使用
 
 ## 源码分析
 
